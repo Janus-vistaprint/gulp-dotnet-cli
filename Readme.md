@@ -31,17 +31,17 @@ gulp.task('test', ['build'], ()=>{
     return gulp.src('**/*test*.csproj', {read: false})
         .pipe(test())
 });
-//compile and publish to the local filesystem
+//compile and publish an application to the local filesystem
 gulp.task('publish', ['test'], ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
                 .pipe(publish({configuration: 'Release', version: version}));
 })
-
+//convert a project to a nuget package
 gulp.task('pack', ['build'], ()=>{
     return gulp.src('**/TestLibrary.csproj', {read: false})
                 .pipe(pack({output: path.join(process.cwd(), 'nupkgs'), version: version}));
 });
-
+//push nuget packages to a server
 gulp.task('push', ['pack'], ()=>{
     return gulp.src('nupkgs/*.nupkg', {read: false})
                 .pipe(push({apiKey: Process.env.NUGET_API_KEY, source: 'https://myget.org/f/myfeedurl'}));
