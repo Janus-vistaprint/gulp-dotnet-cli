@@ -15,7 +15,8 @@ Then add it to your gulpfile.js
 ```javascript
 
 let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
-let version = `1.3.` + Process.env.BUILD_NUMBER || '0';
+let version = `1.3.` + process.env.BUILD_NUMBER || '0';
+let configuration = process.env.BUILD_CONFIGURATION || 'Release';
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
@@ -25,7 +26,7 @@ gulp.task('restore', ()=>{
 gulp.task('build', ['restore'], ()=>{
                     //this could be **/*.sln if you wanted to build solutions
     return gulp.src('**/*.csproj', {read: false})
-        .pipe(build({configuration: 'Release', version: version}));
+        .pipe(build({configuration: configuration, version: version}));
 });
 //run unit tests
 gulp.task('test', ['build'], ()=>{
@@ -35,7 +36,7 @@ gulp.task('test', ['build'], ()=>{
 //compile and publish an application to the local filesystem
 gulp.task('publish', ['test'], ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
-                .pipe(publish({configuration: 'Release', version: version}));
+                .pipe(publish({configuration: configuration, version: version}));
 })
 //convert a project to a nuget package
 gulp.task('pack', ['build'], ()=>{
@@ -49,7 +50,7 @@ gulp.task('pack', ['build'], ()=>{
 gulp.task('push', ['pack'], ()=>{
     return gulp.src('nupkgs/*.nupkg', {read: false})
                 .pipe(push({
-                    apiKey: Process.env.NUGET_API_KEY, 
+                    apiKey: process.env.NUGET_API_KEY, 
                     source: 'https://myget.org/f/myfeedurl'}));
 });
 
