@@ -1,4 +1,4 @@
-The api docs are broken up by action. All options are objects with key/values, and all parameters are optional
+The api docs are broken up by action. All paramters are objects with key/values, and all parameters are optional. You can find a working example in the [root readme file](../Readme.md)
 
 * [build](build.md)
 * [pack](pack.md)
