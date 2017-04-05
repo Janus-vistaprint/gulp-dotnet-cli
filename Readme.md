@@ -58,5 +58,5 @@ You can find a working example in our [test](test/gulpfile.js) directory
 
 ## Options
 
-Each plugin has 1 argument that is an object. Each object has key/value settings, and each setting is optional, but will change the default behaviors. All of the options are documented in the [Api docs](docs/index.md). 
+Each action (build/test/push/etc.) has 1 argument that is an object. Each object has key/value settings, and each setting is optional, but will change the default behaviors. All of the options are documented in the [Api docs](docs/index.md). 
 
