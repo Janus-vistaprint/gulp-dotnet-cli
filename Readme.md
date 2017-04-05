@@ -44,7 +44,7 @@ gulp.task('pack', ['build'], ()=>{
 
 gulp.task('push', ['pack'], ()=>{
     return gulp.src('nupkgs/*.nupkg', {read: false})
-                .pipe(push(apiKey: Process.env.NUGET_API_KEY, source: 'https://myget.org/f/myfeedurl'));
+                .pipe(push({apiKey: Process.env.NUGET_API_KEY, source: 'https://myget.org/f/myfeedurl'}));
 });
 
 ```
