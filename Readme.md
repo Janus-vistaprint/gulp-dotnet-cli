@@ -1,6 +1,8 @@
 ## gulp-dotnet-cli
 
-[gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. You can run `dotnet action --help` to get help on a specific action ex. `dotnet build --help` 
+[gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. 
+
+You can run `dotnet action --help` to get help on a specific action ex. `dotnet build --help`, or view our [Api docs](docs/index.md) 
 
 ## Usage
 
@@ -56,8 +58,3 @@ gulp.task('push', ['pack'], ()=>{
 
 ```
 You can find a working example in our [test](test/gulpfile.js) directory
-
-## Options
-
-Each action (build/test/push/etc.) has 1 argument that is an object. Each object has key/value settings, and each setting is optional, but will change the default behaviors. All of the options are documented in the [Api docs](docs/index.md). 
-
