@@ -1,6 +1,6 @@
 ## gulp-dotnet-cli
 
-dotnet cli for [gulp](https://github.com/gulpjs/gulp) 
+[gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. You can run `dotnet action --help` to get help on a specific action ex. `dotnet build --help` 
 
 ## Usage
 
@@ -40,16 +40,23 @@ gulp.task('publish', ['test'], ()=>{
 //convert a project to a nuget package
 gulp.task('pack', ['build'], ()=>{
     return gulp.src('**/TestLibrary.csproj', {read: false})
-                .pipe(pack({output: path.join(process.cwd(), 'nupkgs'), version: version}));
+                .pipe(pack({
+                            output: path.join(process.cwd(), 'nupkgs') , 
+                            version: version
+                            }));
 });
 //push nuget packages to a server
 gulp.task('push', ['pack'], ()=>{
     return gulp.src('nupkgs/*.nupkg', {read: false})
-                .pipe(push({apiKey: Process.env.NUGET_API_KEY, source: 'https://myget.org/f/myfeedurl'}));
+                .pipe(push({
+                    apiKey: Process.env.NUGET_API_KEY, 
+                    source: 'https://myget.org/f/myfeedurl'}));
 });
 
 ```
+You can find a working example in our [test](test/gulpfile.js) directory
 
 ## Options
 
-All of the options are documented in the [Api docs](docs/index.md). **All options, are optional**
+Each plugin has 1 argument that is an object. Each object has key/value settings, and each setting is optional, but will change the default behaviors. All of the options are documented in the [Api docs](docs/index.md). 
+
