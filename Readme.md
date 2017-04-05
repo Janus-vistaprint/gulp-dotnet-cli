@@ -23,6 +23,7 @@ gulp.task('restore', ()=>{
 })
 //compile
 gulp.task('build', ['restore'], ()=>{
+                    //this could be **/*.sln if you wanted to build solutions
     return gulp.src('**/*.csproj', {read: false})
         .pipe(build({configuration: 'Release', version: version}));
 });
