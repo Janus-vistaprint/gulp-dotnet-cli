@@ -1,7 +1,7 @@
 {
   "name": "gulp-dotnet-cli",
-  "version": "0.0.1-alpha-1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A dotnet command line interface for gulp",
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha test/js/**/*.js",
