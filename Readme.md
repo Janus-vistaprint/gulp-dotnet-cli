@@ -19,6 +19,7 @@ Then add it to your gulpfile.js
 let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
 let version = `1.3.` + process.env.BUILD_NUMBER || '0';
 let configuration = process.env.BUILD_CONFIGURATION || 'Release';
+let gulp = require('gulp');
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
