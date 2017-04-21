@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha test/js/**/*.js",
-    "cover": "nyc npm test && nyc report --include lib/** --all --reporter=text-lcov | coveralls",
+    "cover": "nyc --include lib/** --all npm test && nyc report --reporter=text-lcov",
     "lint": "jshint lib"
   },
   "repository": {
