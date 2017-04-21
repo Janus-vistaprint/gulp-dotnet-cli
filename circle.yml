@@ -1,9 +1,6 @@
 machine:
   node:
     version: 6.1.0
-dependencies:
-  pre:
-    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 test:
   pre: 
     - npm run lint
