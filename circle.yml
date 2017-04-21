@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 4.0.5
+    version: 4.1.2
 dependencies:
   pre:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
