@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha test/js/**/*.js",
-    "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "cover": "nyc --reporter=text-lcov --include lib/** --all npm test",
     "lint": "jshint lib"
   },
   "repository": {
@@ -38,8 +38,5 @@
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^10.2.0",
     "rimraf": "^2.6.1"
-  },
-  "nyc":{
-    "include": ["lib/**/*.js"]
   }
 }
