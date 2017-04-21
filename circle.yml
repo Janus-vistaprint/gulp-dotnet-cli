@@ -9,5 +9,6 @@ test:
 deployment:
   npm:
     tag: /[0-9]+(\.[0-9]+)*/
-        commands:
+    owner: Janus-vistaprint
+    commands:
       - npm publish
