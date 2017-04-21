@@ -3,7 +3,7 @@
 The push module is responsible for running `dotnet nuget push` or essentially pushing a nuget package to a nuget server. You can get more help by running `dotnet nuget push --help` 
 
 ```js
-let {build} = require('gulp-dotnet-cli');
+let {push} = require('gulp-dotnet-cli');
 
 ```
 
