@@ -1,0 +1,15 @@
+machine:
+  node: 6.10.2
+dependencies:
+  pre:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+test:
+  pre: 
+    - npm run lint
+  post:
+    - npm run cover
+deployment:
+  npm:
+    tag: /[0-9]+(\.[0-9]+)*/
+        commands:
+      - npm publish
