@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master)](https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master) [![Build Status](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master)](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli)
+
 ## gulp-dotnet-cli
 
 [gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. 
