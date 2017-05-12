@@ -67,3 +67,11 @@ The [pack model](/lib/models/PackModel.js) contains the actual model we validate
 * type: `Array<string>`
 
 > Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options
+
+#### echo
+
+* type: `bool`
+
+* default: false
+
+> Logs the command we run to the console

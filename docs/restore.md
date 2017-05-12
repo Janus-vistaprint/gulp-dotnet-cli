@@ -76,3 +76,11 @@ The [restore model](/lib/models/RestoreModel.js) contains the actual model we va
 * type: `Array<string>`
 
 > Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options
+
+#### echo
+
+* type: `bool`
+
+* default: false
+
+> Logs the command we run to the console

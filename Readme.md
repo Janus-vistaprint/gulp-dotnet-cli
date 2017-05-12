@@ -4,7 +4,7 @@
 
 [gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. 
 
-You can run `dotnet action --help` to get help on a specific action ex. `dotnet build --help`, or view our [Api docs](docs/index.md) 
+You can run `dotnet action --help` to get help on a specific action ex. `dotnet build --help`, or view our [Api docs](docs/Readme.md) 
 
 ## Usage
 

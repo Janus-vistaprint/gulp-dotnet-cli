@@ -55,6 +55,7 @@ The [build model](/lib/models/BuildModel.js) contains the actual model we valida
 
 > Set this flag to ignore project-to-project references and only build the root project
 
+
 #### verbosity 
 
 * type: `string`
@@ -75,3 +76,11 @@ The [build model](/lib/models/BuildModel.js) contains the actual model we valida
 * type: `Array<string>`
 
 > Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options
+
+#### echo
+
+* type: `bool`
+
+* default: false
+
+> Logs the command we run to the console
