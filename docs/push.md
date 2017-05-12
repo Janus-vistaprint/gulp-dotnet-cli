@@ -59,3 +59,11 @@ The [NugetPush model](/lib/models/NugetPushModel.js) contains the actual model w
 * type: `bool`
 
 > If a symbols package exists, it will not be pushed to a symbols server.
+
+#### echo
+
+* type: `bool`
+
+* default: false
+
+> Logs the command we run to the console

@@ -87,3 +87,11 @@ The [test model](/lib/models/TestModel.js) contains the actual model we validate
 * type: `Array<string>`
 
 > Any extra commandline runsettings arguments that should be passed to vstest. See dotnet vstest --help for available options
+
+#### echo
+
+* type: `bool`
+
+* default: false
+
+> Logs the command we run to the console

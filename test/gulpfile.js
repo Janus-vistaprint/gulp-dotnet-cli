@@ -9,17 +9,17 @@ gulp.task('clean', ()=>{
 })
 gulp.task('restore', ['clean'], ()=>{
     return gulp.src('**/*.csproj', {read: false})
-            .pipe(restore());
+            .pipe(restore({echo: true}));
 })
 
 gulp.task('build', ['restore'], ()=>{
     return gulp.src('**/*.csproj', {read: false})
-        .pipe(build({configuration: 'Release', version: '1.3.0'}))
+        .pipe(build({configuration: 'Release', version: '1.3.0', echo: true}))
 });
 
 gulp.task('test', ['build'], ()=>{
     return gulp.src('tst/*.csproj', {read: false})
-        .pipe(test())
+        .pipe(test({echo: true}))
 });
 
 gulp.task('publish', ['test'], ()=>{
@@ -29,7 +29,7 @@ gulp.task('publish', ['test'], ()=>{
 
 gulp.task('pack', ['build'], ()=>{
     return gulp.src('**/*.csproj', {read: false})
-                .pipe(pack({output: path.join(process.cwd(), 'nupkgs')}))
+                .pipe(pack({output: path.join(process.cwd(), 'nupkgs'), echo: true}))
 })
 
 gulp.task('preflight', ['restore', 'build', 'test', 'publish', 'pack']);
