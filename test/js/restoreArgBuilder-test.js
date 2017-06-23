@@ -13,6 +13,9 @@ describe('Restore Argument Builder', () => {
     it('should have source if source is passed', () => {
       assert.deepEqual(builder({source: 'yo'}), ['--source', 'yo']);
     });
+    it('should have multiple sources if source array is passed', () => {
+      assert.deepEqual(builder({source: ['yo1', 'yo2']}), ['--source', 'yo1', '--source', 'yo2']);
+    });
     it('should have runtime if runtime is passed', () => {
       assert.deepEqual(builder({runtime: 'yo'}), ['--runtime', 'yo']);
     });
