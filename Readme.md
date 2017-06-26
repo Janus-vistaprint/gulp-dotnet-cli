@@ -16,10 +16,43 @@ First, install gulp-dotnet-cli
 
 Then add it to your gulpfile.js
 
+Simple Example:
+
 ```javascript
 
 let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
-let version = `1.3.` + process.env.BUILD_NUMBER || '0';
+let gulp = require('gulp');
+//restore nuget packages
+gulp.task('restore', ()=>{
+    return gulp.src('**/*.csproj', {read: false})
+            .pipe(restore());
+})
+//compile
+gulp.task('build', ['restore'], ()=>{
+                    //this could be **/*.sln if you wanted to build solutions
+    return gulp.src('**/*.csproj', {read: false})
+        .pipe(build());
+});
+//run unit tests
+gulp.task('test', ['build'], ()=>{
+    return gulp.src('**/*test*.csproj', {read: false})
+        .pipe(test())
+});
+//compile and publish an application to the local filesystem
+gulp.task('publish', ['test'], ()=>{
+    return gulp.src('src/TestWebProject.csproj', {read: false})
+                .pipe(publish({configuration: 'Release'}));
+})
+
+```
+
+
+More Complicated example:
+
+```javascript
+
+let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let version = `1.3.` + (process.env.BUILD_NUMBER || '0');
 let configuration = process.env.BUILD_CONFIGURATION || 'Release';
 let gulp = require('gulp');
 //restore nuget packages
