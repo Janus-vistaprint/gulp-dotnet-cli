@@ -29,7 +29,7 @@ The [test model](/lib/models/TestModel.js) contains the actual model we validate
 
 * type: `string`
 
-> Lists discovered tests
+> Run tests that match the given expression
 
 #### testAdapterPath 
 

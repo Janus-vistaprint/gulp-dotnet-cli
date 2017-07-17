@@ -7,6 +7,9 @@ describe('Test Argument Builder', () => {
     it('should have listTests if listTests is passed', () => {
       assert.deepEqual(builder({listTests: true}), ['--list-tests']);
     });
+    it('should have filter if filter is passed', () => {
+      assert.deepEqual(builder({filter: 'TestCategory!=yo'}), ['--filter', 'TestCategory!=yo']);
+    });
     it('should have settings if settings is passed', () => {
       assert.deepEqual(builder({settings: 'yo'}), ['--settings', 'yo']);
     });
