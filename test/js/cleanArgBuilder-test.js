@@ -1,6 +1,6 @@
 let assert = require('assert');
 let builder = require('../../lib/builders/cleanArgBuilder');
-describe('Build Argument Builder', () => {
+describe('Clean Argument Builder', () => {
     it('should return an empty array if nothing is passed in', () => {
       assert.deepEqual(builder(), []);
     });
