@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-dotnet-cli": "../",
     "joi": "^10.4.1"

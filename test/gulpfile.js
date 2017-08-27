@@ -1,11 +1,11 @@
 let gulp = require('gulp');
-let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let {clean, restore, build, test, pack, publish} = require('gulp-dotnet-cli');
 let path = require('path');
 let process = require('process');
-let del = require('del');
 
 gulp.task('clean', ()=>{
-    return del(['**/obj', '**/bin']);
+    return gulp.src('**/*.csproj', {read: false})
+               .pipe(clean({echo: true}));
 })
 gulp.task('restore', ['clean'], ()=>{
     return gulp.src('**/*.csproj', {read: false})
@@ -19,7 +19,11 @@ gulp.task('build', ['restore'], ()=>{
 
 gulp.task('test', ['build'], ()=>{
     return gulp.src('tst/*.csproj', {read: false})
-        .pipe(test({echo: true}))
+        .pipe(test({
+            echo: true, 
+            noBuild: true,
+            configuration: 'Release',
+        }))
 });
 
 gulp.task('publish', ['test'], ()=>{

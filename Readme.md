@@ -20,11 +20,12 @@ Simple Example:
 
 ```javascript
 
-let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let {clean, restore, build, test, pack, publish} = require('gulp-dotnet-cli');
 let gulp = require('gulp');
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
+            .pipe(clean())
             .pipe(restore());
 })
 //compile
@@ -51,13 +52,14 @@ More Complicated example:
 
 ```javascript
 
-let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let {clean, restore, build, test, pack, publish} = require('gulp-dotnet-cli');
 let version = `1.3.` + (process.env.BUILD_NUMBER || '0');
 let configuration = process.env.BUILD_CONFIGURATION || 'Release';
 let gulp = require('gulp');
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
+            .pipe(clean())
             .pipe(restore());
 })
 //compile
@@ -69,7 +71,7 @@ gulp.task('build', ['restore'], ()=>{
 //run unit tests
 gulp.task('test', ['build'], ()=>{
     return gulp.src('**/*test*.csproj', {read: false})
-        .pipe(test())
+        .pipe(test({noBuild: true, configuration: configuration}))
 });
 //compile and publish an application to the local filesystem
 gulp.task('publish', ['test'], ()=>{
