@@ -3,7 +3,7 @@
 The clean module is responsible for running `dotnet clean` or essentially calling the compiler. You can get more help by running `dotnet clean --help`
 
 ```js
-let {Clean} = require('gulp-dotnet-cli');
+let {clean} = require('gulp-dotnet-cli');
 
 ```
 
