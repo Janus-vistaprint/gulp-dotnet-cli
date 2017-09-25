@@ -49,7 +49,7 @@ The [build model](/lib/models/BuildModel.js) contains the actual model we valida
 
 > Disables incremental build.
 
-#### noDepenencies
+#### noDependencies
 
 * type: `bool`
 

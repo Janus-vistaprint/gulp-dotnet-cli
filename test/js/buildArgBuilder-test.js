@@ -28,8 +28,8 @@ describe('Build Argument Builder', () => {
     it('should have noIncremental if noIncremental is passed', () => {
       assert.deepEqual(builder({noIncremental: true}), ['--no-incremental']);
     });
-    it('should have noDepenencies if noDepenencies is passed', () => {
-      assert.deepEqual(builder({noDepenencies: true}), ['--no-dependencies']);
+    it('should have noDependencies if noDependencies is passed', () => {
+      assert.deepEqual(builder({noDependencies: true}), ['--no-dependencies']);
     });
     it('should have verbosity if verbosity is passed', () => {
       assert.deepEqual(builder({verbosity: 'yo'}), ['--verbosity', 'yo']);

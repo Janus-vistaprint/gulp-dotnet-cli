@@ -31,8 +31,8 @@ describe('Restore Argument Builder', () => {
     it('should have noIncremental if noIncremental is passed', () => {
       assert.deepEqual(builder({noIncremental: true}), ['--no-incremental']);
     });
-    it('should have noDepenencies if noDepenencies is passed', () => {
-      assert.deepEqual(builder({noDepenencies: true}), ['--no-dependencies']);
+    it('should have noDependencies if noDependencies is passed', () => {
+      assert.deepEqual(builder({noDependencies: true}), ['--no-dependencies']);
     });
     it('should have msbuild args if msbuildargs are passed and are always last', () => {
       assert.deepEqual(builder({msbuildArgs: ['/p:awesome=1.0.0', '/t:Build']}), ['/p:awesome=1.0.0', '/t:Build']);
