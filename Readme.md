@@ -20,13 +20,18 @@ Simple Example:
 
 ```javascript
 
-let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let {clean, restore, build, test, pack, publish, run} = require('gulp-dotnet-cli');
 let gulp = require('gulp');
+//clean
+gulp.task('clean', ()=>{
+    return gulp.src('**/*.csproj', {read: false})
+            .pipe(clean());
+});
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
             .pipe(restore());
-})
+});
 //compile
 gulp.task('build', ['restore'], ()=>{
                     //this could be **/*.sln if you wanted to build solutions
@@ -42,7 +47,12 @@ gulp.task('test', ['build'], ()=>{
 gulp.task('publish', ['test'], ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
                 .pipe(publish({configuration: 'Release'}));
-})
+});
+//run
+gulp.task('run', ()=>{
+    return gulp.src('src/TestWebProject.csproj', {read: false})
+            .pipe(run());
+});
 
 ```
 
@@ -51,15 +61,20 @@ More Complicated example:
 
 ```javascript
 
-let {restore, build, test, pack, publish} = require('gulp-dotnet-cli');
+let {clean, restore, build, test, pack, publish, run} = require('gulp-dotnet-cli');
 let version = `1.3.` + (process.env.BUILD_NUMBER || '0');
 let configuration = process.env.BUILD_CONFIGURATION || 'Release';
 let gulp = require('gulp');
+//clean
+gulp.task('clean', ()=>{
+    return gulp.src('**/*.csproj', {read: false})
+            .pipe(clean());
+});
 //restore nuget packages
 gulp.task('restore', ()=>{
     return gulp.src('**/*.csproj', {read: false})
             .pipe(restore());
-})
+});
 //compile
 gulp.task('build', ['restore'], ()=>{
                     //this could be **/*.sln if you wanted to build solutions
@@ -75,7 +90,7 @@ gulp.task('test', ['build'], ()=>{
 gulp.task('publish', ['test'], ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
                 .pipe(publish({configuration: configuration, version: version}));
-})
+});
 //convert a project to a nuget package
 gulp.task('pack', ['build'], ()=>{
     return gulp.src('**/TestLibrary.csproj', {read: false})
@@ -90,6 +105,11 @@ gulp.task('push', ['pack'], ()=>{
                 .pipe(push({
                     apiKey: process.env.NUGET_API_KEY, 
                     source: 'https://myget.org/f/myfeedurl'}));
+});
+//run
+gulp.task('run', ()=>{
+    return gulp.src('src/TestWebProject.csproj', {read: false})
+                .pipe(run());
 });
 
 ```

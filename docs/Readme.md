@@ -6,3 +6,5 @@ The api docs are broken up by action. All paramters are objects with key/values,
 * [push](push.md)
 * [restore](restore.md)
 * [test](test.md)
+* [clean](clean.md)
+* [run](run.md)
