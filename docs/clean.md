@@ -1,9 +1,9 @@
-# Build
+# Clean
 
-The build module is responsible for running `dotnet build` or essentially calling the compiler. You can get more help by running `dotnet build --help`
+The clean module is responsible for running `dotnet clean` or essentially calling the compiler. You can get more help by running `dotnet clean --help`
 
 ```js
-let {build} = require('gulp-dotnet-cli');
+let {clean} = require('gulp-dotnet-cli');
 
 ```
 
@@ -36,25 +36,6 @@ The [build model](/lib/models/BuildModel.js) contains the actual model we valida
 * type: `string`
 
 > Configuration to use for building the project. Default for most projects is  "Debug"
-
-#### versionSuffix
-
-* type: `string`
-
-> Defines the value for the $(VersionSuffix) property in the project
-       
-#### noIncremental
-
-* type: `bool`
-
-> Disables incremental build.
-
-#### noDependencies
-
-* type: `bool`
-
-> Set this flag to ignore project-to-project references and only build the root project
-
 
 #### verbosity 
 

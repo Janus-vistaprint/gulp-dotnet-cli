@@ -1,6 +1,6 @@
 let assert = require('assert');
-let builder = require('../../lib/builders/buildArgBuilder');
-describe('Build Argument Builder', () => {
+let builder = require('../../lib/builders/cleanArgBuilder');
+describe('Clean Argument Builder', () => {
     it('should return an empty array if nothing is passed in', () => {
       assert.deepEqual(builder(), []);
     });
@@ -18,18 +18,9 @@ describe('Build Argument Builder', () => {
     });
     it('should have runtime if runtime is passed', () => {
       assert.deepEqual(builder({runtime: 'yo'}), ['--runtime', 'yo']);
-    });
-    it('should have versionSuffix if versionSuffix is passed', () => {
-      assert.deepEqual(builder({versionSuffix: 'yo'}), ['--version-suffix', 'yo']);
-    });
+    });   
     it('should have configuration if configuration is passed', () => {
       assert.deepEqual(builder({configuration: 'yo'}), ['--configuration', 'yo']);
-    });
-    it('should have noIncremental if noIncremental is passed', () => {
-      assert.deepEqual(builder({noIncremental: true}), ['--no-incremental']);
-    });
-    it('should have noDependencies if noDependencies is passed', () => {
-      assert.deepEqual(builder({noDependencies: true}), ['--no-dependencies']);
     });
     it('should have verbosity if verbosity is passed', () => {
       assert.deepEqual(builder({verbosity: 'yo'}), ['--verbosity', 'yo']);
