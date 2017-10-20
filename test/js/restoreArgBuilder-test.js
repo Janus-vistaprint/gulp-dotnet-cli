@@ -37,4 +37,7 @@ describe('Restore Argument Builder', () => {
     it('should have msbuild args if msbuildargs are passed and are always last', () => {
       assert.deepEqual(builder({msbuildArgs: ['/p:awesome=1.0.0', '/t:Build']}), ['/p:awesome=1.0.0', '/t:Build']);
     });
+    it('should version arguments', () => {
+      assert.deepEqual(builder({version: '1.0.1'}), ['/p:Version=1.0.1']);
+    });
 });
