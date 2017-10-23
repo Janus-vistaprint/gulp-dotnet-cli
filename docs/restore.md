@@ -84,3 +84,11 @@ The [restore model](/lib/models/RestoreModel.js) contains the actual model we va
 * default: false
 
 > Logs the command we run to the console
+
+#### version
+
+* type: `string`
+
+* default: false
+
+> Sets the projects version. When restore is ran project to project version numbers are resolved. This is only used for project to project references that will ultimately end up in separate packages.
