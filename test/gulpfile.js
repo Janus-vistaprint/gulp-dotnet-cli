@@ -38,7 +38,7 @@ gulp.task('pack', ['build'], () => {
         .pipe(pack({ output: path.join(process.cwd(), 'nupkgs'), echo: true }));
 });
 
-gulp.task('run:args', ['build'], () => {
+gulp.task('run:args', [], () => {
     return gulp.src('args/*.csproj', { read: false })
         .pipe(run({
             additionalArgs: ['Steve']

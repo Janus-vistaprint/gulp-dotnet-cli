@@ -81,18 +81,12 @@ The [run model](/lib/models/RunModel.js) contains the actual model we validate a
 
 > sets the console verbosity
 
-#### version 
-
-* type: `string`
-
-> Sets the $(Version) property in msbuild
-
 
 #### msbuildArgs
 
 * type: `Array<string>`
 
-> Depricated - if you are using this to pass arguments to the program, use additionalArgs instead. Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options
+> Depricated - if you are using this to pass arguments to the program, use additionalArgs instead.
 
 #### additionalArgs
 

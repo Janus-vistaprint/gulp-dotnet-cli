@@ -43,7 +43,7 @@ describe('Run Argument Builder', () => {
     it('should have msbuild args if msbuildargs are passed and are always last', () => {
       assert.deepEqual(builder({msbuildArgs: ['/p:awesome=1.0.0', '/t:Build'], configuration: 'Release'}), ['--configuration','Release','/p:awesome=1.0.0', '/t:Build']);
     });
-    it('should have msbuild args if msbuildargs are passed and are always last, version even...laster', () => {
-      assert.deepEqual(builder({msbuildArgs: ['/p:awesome=1.0.0', '/t:Build'], configuration: 'Release', version: '1.2.0'}), ['--configuration','Release','/p:awesome=1.0.0', '/t:Build', '/p:Version=1.2.0']);
+    it('should have additionalArgs if additionalArgs are passed and are always last', () => {
+      assert.deepEqual(builder({additionalArgs: ['/p:awesome=1.0.0', '/t:Build'], configuration: 'Release'}), ['--configuration','Release','/p:awesome=1.0.0', '/t:Build']);
     });
 });
