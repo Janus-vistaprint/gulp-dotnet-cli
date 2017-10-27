@@ -38,4 +38,12 @@ gulp.task('pack', ['build'], () => {
         .pipe(pack({ output: path.join(process.cwd(), 'nupkgs'), echo: true }));
 });
 
+gulp.task('run:args', ['build'], () => {
+    return gulp.src('args/*.csproj', { read: false })
+        .pipe(run({
+            msbuildArgs: ['Steve']
+        }));
+});
+
+
 gulp.task('preflight', ['restore', 'build', 'test', 'publish', 'pack']);
