@@ -25,6 +25,19 @@ The [pack model](/lib/models/PackModel.js) contains the actual model we validate
 
 > Skip building the project prior to packing. By default, the project will be built.
 
+#### noDependencies
+
+* type: `bool`
+* Requirement: dotnet core 2.x+
+> Set this flag to ignore project to project references and only restore the root project.
+
+#### noRestore
+
+* type: `bool`
+* Requirement: dotnet core 2.x+
+
+> Does not do an implicit restore when executing the command.
+
 #### includeSymbols 
 
 * type: `bool`

@@ -16,6 +16,12 @@ describe('pack Argument Builder', () => {
     it('should have noBuild if noBuild is passed', () => {
       assert.deepEqual(builder({noBuild: true}), ['--no-build']);
     });
+    it('should have noRestore if noRestore is passed', () => {
+      assert.deepEqual(builder({noRestore: true}), ['--no-restore']);
+    });
+    it('should have noDependencies if noDependencies is passed', () => {
+      assert.deepEqual(builder({noDependencies: true}), ['--no-dependencies']);
+    });
     it('should have includeSymbols if includeSymbols is passed', () => {
       assert.deepEqual(builder({includeSymbols: true}), ['--include-symbols']);
     });
