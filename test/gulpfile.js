@@ -41,7 +41,7 @@ gulp.task('pack', ['build'], () => {
 gulp.task('run:args', ['build'], () => {
     return gulp.src('args/*.csproj', { read: false })
         .pipe(run({
-            msbuildArgs: ['Steve']
+            additionalArgs: ['Steve']
         }));
 });
 
