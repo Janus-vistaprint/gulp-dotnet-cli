@@ -16,9 +16,6 @@ describe('Run Argument Builder', () => {
     it('should have framework if framework is passed', () => {
       assert.deepEqual(builder({framework: 'yo'}), ['--framework', 'yo']);
     });
-    it('should have project if project is passed', () => {
-      assert.deepEqual(builder({project: 'yo'}), ['--project', 'yo']);
-    });
     it('should have runtime if runtime is passed', () => {
       assert.deepEqual(builder({runtime: 'yo'}), ['--runtime', 'yo']);
     });
