@@ -4,7 +4,7 @@
   "description": "A dotnet command line interface for gulp",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha test/js/**/*.js",
+    "test": "rimraf ./dist && tsc && mocha test/js/**/*.js",
     "cover": "nyc --all  npm test && nyc report --reporter=text-lcov | coveralls",
     "compile": "rimraf ./dist && tsc"
   },
@@ -52,15 +52,5 @@
       "test/**",
       "lib/models/**"
     ]
-  },
-  "joiTsGenerator": {
-    "input": "./src/models/*.ts",
-    "nullableMode": "option",
-    "outputs": {
-      "library": "./src/coercion.generated.ts",
-      "optics": "./src/optics",
-      "types": "./src/schemas/types.ts",
-      "utils": "./src/schemas/utils.ts"
-    }
   }
 }
