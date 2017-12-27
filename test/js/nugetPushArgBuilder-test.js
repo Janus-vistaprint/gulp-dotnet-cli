@@ -1,35 +1,38 @@
 let assert = require('assert');
-let builder = require('../../lib/builders/nugetPushArgBuilder');
+let builder = require('../../dist/builders/nugetPushArgBuilder');
 describe('push Argument Builder', () => {
     it('should return an empty array if nothing is passed in', () => {
-      assert.deepEqual(builder(), []);
+      assert.deepEqual(builder.default(), []);
     });
     it('should return an empty array if an empty object is passed in', () => {
-      assert.deepEqual(builder({}), []);
+      assert.deepEqual(builder.default({}), []);
     });
     it('should return an empty array if an array is passed in', () => {
-      assert.deepEqual(builder([]), []);
+      assert.deepEqual(builder.default([]), []);
     });
     it('should have source if source is passed', () => {
-      assert.deepEqual(builder({source: 'yo'}), ['--source', 'yo']);
+      assert.deepEqual(builder.default({source: 'yo'}), ['--source', 'yo']);
     });
     it('should have symbolsource if symbolsource is passed', () => {
-      assert.deepEqual(builder({symbolsource: 'yo'}), ['--symbol-source', 'yo']);
+      assert.deepEqual(builder.default({symbolsource: 'yo'}), ['--symbol-source', 'yo']);
+    });
+    it('should have symbolsource if symbolsource is passed', () => {
+      assert.deepEqual(builder.default({symbolApiKey: 'yo'}), ['--symbol-api-key', 'yo']);
     });
     it('should have timeout if timeout is passed', () => {
-      assert.deepEqual(builder({timeout: 'yo'}), ['--timeout', 'yo']);
+      assert.deepEqual(builder.default({timeout: 'yo'}), ['--timeout', 'yo']);
     });
     it('should have apiKey if apiKey is passed', () => {
-      assert.deepEqual(builder({apiKey: 'yo'}), ['--api-key', 'yo']);
+      assert.deepEqual(builder.default({apiKey: 'yo'}), ['--api-key', 'yo']);
     });
     it('should have disableBuffering if disableBuffering is passed', () => {
-      assert.deepEqual(builder({disableBuffering: true}), ['--disable-buffering']);
+      assert.deepEqual(builder.default({disableBuffering: true}), ['--disable-buffering']);
     });
     it('should have noSymbols if noSymbols is passed', () => {
-      assert.deepEqual(builder({noSymbols: true}), ['--no-symbols']);
+      assert.deepEqual(builder.default({noSymbols: true}), ['--no-symbols']);
     });
     it('should have forceEnglishOutput if forceEnglishOutput is passed', () => {
-      assert.deepEqual(builder({forceEnglishOutput: true}), ['--force-english-output']);
+      assert.deepEqual(builder.default({forceEnglishOutput: true}), ['--force-english-output']);
     });
 
 });

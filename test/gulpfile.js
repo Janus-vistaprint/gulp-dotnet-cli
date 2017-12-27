@@ -1,5 +1,5 @@
 let gulp = require('gulp');
-let { clean, restore, build, test, pack, publish, run } = require('../lib/index');
+let { clean, restore, build, test, pack, publish, run } = require('../dist/index');
 let path = require('path');
 let process = require('process');
 

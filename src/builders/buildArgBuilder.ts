@@ -1,0 +1,58 @@
+//todo generate those JOI models from these interfaces
+export interface IBuildModel{
+    output: string
+    framework: string,
+    runtime: string,
+    configuration: string,
+    versionSuffix: boolean,
+    noIncremental: boolean,
+    noDependencies: boolean,
+    //todo: figure out the common things and make a base interface
+    // also convert verbosities into an enum
+    verbosity: string,
+    msbuildArgs: Array<string>,
+    version: string,
+    echo: true
+}
+
+/**
+ * calculates build arguments
+ * @param {BuildModel} value - the value to build arguments off of.
+ */
+export default (value: IBuildModel) => {
+    let args : Array<string|boolean> = [];
+    if(!value){
+        return args;
+    }
+    if (value.output) {
+        args = args.concat(['--output', value.output]);
+    }
+    if (value.framework) {
+        args = args.concat(['--framework', value.framework]);
+    }
+    if (value.runtime) {
+        args = args.concat(['--runtime', value.runtime]);
+    }
+    if (value.configuration) {
+        args = args.concat(['--configuration', value.configuration]);
+    }
+    if (value.versionSuffix) {
+        args = args.concat(['--version-suffix', value.versionSuffix]);
+    }
+    if (value.noIncremental) {
+        args = args.concat(['--no-incremental']);
+    }
+    if (value.noDependencies) {
+        args = args.concat(['--no-dependencies']);
+    }
+    if (value.verbosity) {
+        args = args.concat(['--verbosity', value.verbosity]);
+    }
+    if (value.msbuildArgs) {
+        args = args.concat(value.msbuildArgs);
+    }
+    if (value.version) {
+        args = args.concat(`/p:Version=${value.version}`);
+    }
+    return args;
+};
