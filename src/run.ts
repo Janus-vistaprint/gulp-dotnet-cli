@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 import shelly from './shelly';
-const runModel = require('./models/RunModel');
-const validation = Joi.object().keys(new runModel());
+import RunModel from './models/RunModel'
+const validation = Joi.object().keys(new RunModel());
 import argBuilder, { IRunModel } from './builders/runArgBuilder';
 import * as stream from 'stream';
 
@@ -14,7 +14,6 @@ export default (options : IRunModel) => {
     
     //Run assumes the current directory without the project flag
     // assume usage of the flag so it has a gulp-y behavior 
-    return shelly('dotnet', ['run', '--project'], calculatedArgs, value.echo, true);
-    return shelly('dotnet', ['run', '--project'], calculatedArgs, value.echo) as stream.Transform;
+    return shelly('dotnet', ['run', '--project'], calculatedArgs, value.echo, true) as stream.Transform;
 
 };

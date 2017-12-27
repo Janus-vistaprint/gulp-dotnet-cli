@@ -9,7 +9,9 @@ export interface IPackModel{
     verbosity: string,
     msbuildArgs: Array<string>,
     version: string,
-    echo: boolean
+    echo: boolean,
+    noDependencies: boolean,
+    noRestore: boolean
 }
 
 export default (value : IPackModel) => {

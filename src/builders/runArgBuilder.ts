@@ -17,7 +17,7 @@ export interface IRunModel{
  * calculates run arguments
  * @param {RunModel} value - the value to run arguments off of.
  */
-export default(value: IRunModel) => {
+export default (value : IRunModel) => {
     let args: Array<string|boolean|Number> = [];
     if(!value){
         return args;
