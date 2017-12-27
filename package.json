@@ -51,7 +51,7 @@
     "exclude": [
       "test/**",
       "lib/models/**",
-      "dist/**"
+      "dist/**/*.js"
     ]
   }
 }
