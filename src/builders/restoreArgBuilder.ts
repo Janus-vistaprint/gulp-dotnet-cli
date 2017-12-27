@@ -1,13 +1,28 @@
-let _ = require('lodash');
+import * as _ from 'lodash'
 
-module.exports = (value) => {
-    let args = [];
+export interface IRestoreBuilder{
+    verbosity: string,
+    msbuildArgs: Array<string>,
+    version: string,
+    source: Array<string> | string,
+    runtime: string,
+    packages: string,
+    disableParallel: boolean,
+    configfile: string,
+    noIncremental: boolean,
+    noDependencies: boolean,
+    echo: boolean
+
+}
+
+export default (value: IRestoreBuilder) => {
+    let args : Array<string|boolean|Number> = [];
     if(!value){
         return args;
     }
     if (value.source) {
         args = args.concat(_.isArray(value.source) 
-            ? _.chain(value.source).map((source) => ['--source', source]).flatten().value()
+            ? _.chain(value.source).map((source: string) => ['--source', source]).flatten().value()
             : ['--source', value.source]);
     }
     if (value.runtime) {

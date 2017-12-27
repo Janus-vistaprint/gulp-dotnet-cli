@@ -1,5 +1,21 @@
-module.exports = (value) => {
-    let args = [];
+export interface ITestModel{
+    settings: string,
+    listTests: boolean,
+    filter: string,
+    testAdapterPath: string,
+    logger: string,
+    configuration: string,
+    framework: string,
+    output: string,
+    diag: string,
+    noBuild : boolean,
+    verbosity: string,
+    additionalArgs: Array<string>,
+    echo: boolean
+}
+
+export default (value: ITestModel) => {
+    let args : Array<any> = [];
     if(!value){
         return args;
     }

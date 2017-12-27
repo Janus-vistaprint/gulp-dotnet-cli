@@ -5,6 +5,14 @@ export interface IBuildModel{
     runtime: string,
     configuration: string,
     versionSuffix: boolean,
+    noIncremental: boolean,
+    noDependencies: boolean,
+    //todo: figure out the common things and make a base interface
+    // also convert verbosities into an enum
+    verbosity: string,
+    msbuildArgs: Array<string>,
+    version: string,
+    echo: true
 }
 
 /**

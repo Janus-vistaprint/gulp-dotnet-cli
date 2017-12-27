@@ -1,5 +1,6 @@
 import * as Joi from 'joi'
-class PublishModel {
+export default class PublishModel implements Joi.SchemaMap  {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     verbosity: Joi.StringSchema;
     msbuildArgs: Joi.ArraySchema;
     echo: Joi.BooleanSchema;
@@ -21,5 +22,3 @@ class PublishModel {
         this.msbuildArgs = Joi.array().items(Joi.string()).description('Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options');
     }
 }
-
-module.exports = PublishModel;

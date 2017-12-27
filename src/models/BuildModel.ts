@@ -1,6 +1,8 @@
 import * as Joi from 'joi'
+import { SchemaMap } from 'joi';
 /* Represents a build model */
-class BuildModel {
+export default class BuildModel implements SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     msbuildArgs: Joi.ArraySchema;
     version: Joi.StringSchema;
     echo: Joi.BooleanSchema;
@@ -30,5 +32,3 @@ class BuildModel {
     }
 
 }
-
-module.exports = BuildModel;

@@ -1,5 +1,17 @@
-module.exports = (value) => {
-    let args = [];
+export interface IPublishModel{
+    output: string,
+    configuration: string,
+    versionSuffix: string,
+    verbosity: string,
+    msbuildArgs: Array<string>,
+    version: string,
+    framework: string,
+    runtime: string,
+    echo: boolean
+}
+
+export default (value : IPublishModel) => {
+    let args : Array<any> = [];
     if(!value){
         return args;
     }

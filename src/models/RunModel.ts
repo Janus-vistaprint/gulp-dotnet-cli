@@ -1,6 +1,7 @@
 import * as Joi from 'joi'
 /* Represents a run model */
-class RunModel {
+export default class RunModel  implements Joi.SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     additionalArgs: Joi.ArraySchema;
     msbuildArgs: Joi.ArraySchema;
     version: Joi.StringSchema;
@@ -33,10 +34,7 @@ class RunModel {
         this.verbosity = Joi.string().only('quiet', 'minimal', 'normal', 'detailed', 'diagnostic');
         this.echo = Joi.boolean().default(false).description('Log the command to the console');
         this.version = Joi.string().description('Sets the $(Version) property in msbuild');
-        this.msbuildArgs = Joi.array().items(Joi.string()).description('DEPRICATED - Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options');
         this.additionalArgs = Joi.array().items(Joi.string()).description('Any options that should be passed to the program when it is run.');
     }
 
 }
-
-module.exports = RunModel;

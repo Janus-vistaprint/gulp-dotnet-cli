@@ -1,10 +1,24 @@
+export interface IRunModel{
+    configuration: string,
+    framework: string,
+    runtime: string,
+    launchProfile: string,
+    noLaunchProfile: string,
+    noBuild: boolean,
+    noRestore: boolean,
+    noDependencies: boolean,
+    force: boolean,
+    verbosity: string,
+    additionalArgs: Array<string>,
+    echo: boolean
+}
 
 /**
  * calculates run arguments
  * @param {RunModel} value - the value to run arguments off of.
  */
-let run = (value) => {
-    let args = [];
+export default(value: IRunModel) => {
+    let args: Array<string|boolean|Number> = [];
     if(!value){
         return args;
     }
@@ -38,14 +52,9 @@ let run = (value) => {
     if (value.verbosity) {
         args = args.concat(['--verbosity', value.verbosity]);
     }
-    if (value.msbuildArgs) {
-        console.warn("msbuildArgs are deprecated, please use additionalArgs. Arguments are not passed to msbuild");
-        args = args.concat(value.msbuildArgs);
-    }
     if (value.additionalArgs) {
         args = args.concat(value.additionalArgs);
     }
     return args;
 };
 
-module.exports = run;

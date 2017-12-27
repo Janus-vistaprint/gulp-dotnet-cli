@@ -1,6 +1,7 @@
 import * as Joi from 'joi'
 /* Represents a build model */
-class NugetPushModel {
+export default class NugetPushModel  implements Joi.SchemaMap  {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     echo: Joi.BooleanSchema;
     noSymbols: Joi.BooleanSchema;
     disableBuffering: Joi.BooleanSchema;
@@ -27,5 +28,3 @@ class NugetPushModel {
     }
 
 }
-
-module.exports = NugetPushModel;

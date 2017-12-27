@@ -1,10 +1,20 @@
 
+export interface ICleanModel{
+    output: string,
+    framework: string,
+    runtime: string,
+    configuration: string,
+    verbosity: string,
+    msbuildArgs: Array<string>,
+    version: string,
+    echo: boolean
+}
 /**
  * calculates clean arguments
  * @param {CleanModel} value - the value to clean arguments off of.
  */
-let clean = (value) => {
-    let args = [];
+export default (value: ICleanModel) => {
+    let args : Array<any> = [];
     if(!value){
         return args;
     }
@@ -31,5 +41,3 @@ let clean = (value) => {
     }
     return args;
 };
-
-module.exports = clean;

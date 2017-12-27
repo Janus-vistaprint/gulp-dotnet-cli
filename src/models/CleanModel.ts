@@ -1,6 +1,7 @@
 import * as Joi from 'joi'
 /* Represents a clean model */
-export default class CleanModel {
+export default class CleanModel  implements Joi.SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     msbuildArgs: Joi.ArraySchema;
     version: Joi.StringSchema;
     echo: Joi.BooleanSchema;

@@ -1,6 +1,7 @@
 import * as Joi from 'joi'
 /* Represents a test schema model */
-class TestModel {
+export default class TestModel  implements Joi.SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     additionalArgs: Joi.ArraySchema;
     verbosity: Joi.StringSchema;
     echo: Joi.BooleanSchema;
@@ -34,5 +35,3 @@ class TestModel {
     }
 
 }
-
-module.exports = TestModel;

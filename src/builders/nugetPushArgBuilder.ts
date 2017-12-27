@@ -1,5 +1,18 @@
-module.exports = (value) => {
-    let args = [];
+export interface INugetPushModel{
+    forceEnglishOutput: boolean,
+    source: string,
+    symbolsource: string,
+    timeout: number,
+    apiKey: string,
+    symbolApiKey: string,
+    disableBuffering: boolean,
+    noSymbols: boolean,
+    echo: boolean
+
+}
+
+export default (value : INugetPushModel) => {
+    let args : Array<string|boolean|number> = [];
     if(!value){
         return args;
     }

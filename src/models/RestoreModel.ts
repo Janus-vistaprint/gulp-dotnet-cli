@@ -1,5 +1,6 @@
 import * as Joi from 'joi'
-class RestoreModel {
+export default class RestoreModel  implements Joi.SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     version: Joi.StringSchema;
     msbuildArgs: Joi.ArraySchema;
     verbosity: Joi.StringSchema;
@@ -28,5 +29,3 @@ class RestoreModel {
         this.version = Joi.string().description('Sets the projects version. Only used for project to project references that will ultimately end up in packages');
     }
 }
-
-module.exports = RestoreModel;

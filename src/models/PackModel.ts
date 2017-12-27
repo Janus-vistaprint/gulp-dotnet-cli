@@ -1,5 +1,6 @@
 import * as Joi from 'joi'
-class PackModel {
+export default class PackModel  implements Joi.SchemaMap {
+    [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     version: Joi.StringSchema;
     msbuildArgs: Joi.ArraySchema;
     echo: Joi.BooleanSchema;
@@ -32,5 +33,3 @@ class PackModel {
     }
 
 }
-
-module.exports = PackModel;
