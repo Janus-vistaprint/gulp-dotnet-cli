@@ -1,6 +1,6 @@
 import * as Joi from 'joi';
 import shelly from './shelly';
-const NugetPushModel = require('./models/NugetPushModel');
+import NugetPushModel from './models/NugetPushModel'
 const validation = Joi.object().keys(new NugetPushModel());
 import argBuilder, { INugetPushModel } from './builders/nugetPushArgBuilder';
 import * as stream from 'stream';

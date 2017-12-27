@@ -2,6 +2,7 @@ import * as Joi from 'joi'
 export default class RestoreModel  implements Joi.SchemaMap {
     [key: string]: string | number | boolean | object | Joi.SchemaMap | Joi.AnySchema | Joi.ArraySchema | Joi.AlternativesSchema | Joi.BinarySchema | Joi.BooleanSchema | Joi.DateSchema | Joi.FunctionSchema | Joi.NumberSchema | Joi.ObjectSchema | Joi.StringSchema | Joi.LazySchema | Joi.SchemaLike[] | null;
     version: Joi.StringSchema;
+    source: Joi.StringSchema;
     msbuildArgs: Joi.ArraySchema;
     verbosity: Joi.StringSchema;
     echo: Joi.BooleanSchema;
@@ -12,10 +13,8 @@ export default class RestoreModel  implements Joi.SchemaMap {
     disableParallel: Joi.BooleanSchema;
     packages: Joi.StringSchema;
     runtime: Joi.StringSchema;
-    source: (Joi.StringSchema | Joi.ArraySchema)[];
     constructor(){
-        this.source = [Joi.string().description('Specifies a NuGet package source to use during the restore.'),
-            Joi.array().description('Specifies a set of NuGet package sources to use during the restore.')];
+        this.source = Joi.string().description('Specifies a NuGet package source to use during the restore.');
         this.runtime = Joi.string().description('Target runtime to restore packages for.');
         this.packages = Joi.string().description('Directory to install packages in.');
         this.disableParallel = Joi.boolean().description('Disables restoring multiple projects in parallel.');

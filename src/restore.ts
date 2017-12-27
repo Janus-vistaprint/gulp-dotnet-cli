@@ -1,6 +1,6 @@
 import * as Joi from 'joi';
 import shelly from './shelly';
-const RestoreModel = require('./models/RestoreModel');
+import RestoreModel from './models/RestoreModel'
 const validation = Joi.object().keys(new RestoreModel());
 import argBuilder, { IRestoreBuilder } from './builders/restoreArgBuilder';
 import * as stream from 'stream';

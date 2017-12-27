@@ -1,6 +1,6 @@
 import * as Joi from 'joi'
 import shelly from './shelly'
-const PublishModel = require('./models/PublishModel');
+import PublishModel from './models/PublishModel'
 const validation = Joi.object().keys(new PublishModel());
 import argBuilder, { IPublishModel } from './builders/publishArgBuilder';
 import * as stream from 'stream';
