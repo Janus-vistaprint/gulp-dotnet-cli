@@ -1,6 +1,14 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 /* Represents a clean model */
-class CleanModel {
+export default class CleanModel {
+    msbuildArgs: Joi.ArraySchema;
+    version: Joi.StringSchema;
+    echo: Joi.BooleanSchema;
+    verbosity: Joi.StringSchema;
+    configuration: Joi.StringSchema;
+    runtime: Joi.StringSchema;
+    framework: Joi.StringSchema;
+    output: Joi.StringSchema;
   /**
    * Create the validation model
    */
@@ -16,5 +24,3 @@ class CleanModel {
     }
 
 }
-
-module.exports = CleanModel;

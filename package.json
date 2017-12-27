@@ -31,6 +31,12 @@
     "through2": "^2.0.3"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.5",
+    "@types/gulp-util": "^3.0.34",
+    "@types/joi": "^13.0.3",
+    "@types/lodash": "^4.14.91",
+    "@types/node": "^8.5.2",
+    "@types/through2": "^2.0.33",
     "coveralls": "^2.13.0",
     "istanbul": "^0.4.5",
     "jshint": "^2.9.4",
@@ -44,5 +50,15 @@
       "test/**",
       "lib/models/**"
     ]
+  },
+  "joiTsGenerator": {
+    "input": "./src/models/*.ts",
+    "nullableMode": "option",
+    "outputs": {
+      "library": "./src/coercion.generated.ts",
+      "optics": "./src/optics",
+      "types": "./src/schemas/types.ts",
+      "utils": "./src/schemas/utils.ts"
+    }
   }
 }

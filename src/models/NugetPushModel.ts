@@ -1,6 +1,15 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 /* Represents a build model */
 class NugetPushModel {
+    echo: Joi.BooleanSchema;
+    noSymbols: Joi.BooleanSchema;
+    disableBuffering: Joi.BooleanSchema;
+    symbolApiKey: Joi.StringSchema;
+    apiKey: Joi.StringSchema;
+    timeout: Joi.NumberSchema;
+    symbolsource: Joi.StringSchema;
+    source: Joi.StringSchema;
+    forceEnglishOutput: Joi.BooleanSchema;
   /**
    * Create the validation model
    */

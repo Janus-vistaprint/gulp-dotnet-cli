@@ -1,6 +1,19 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 /* Represents a test schema model */
 class TestModel {
+    additionalArgs: Joi.ArraySchema;
+    verbosity: Joi.StringSchema;
+    echo: Joi.BooleanSchema;
+    noBuild: Joi.BooleanSchema;
+    diag: Joi.StringSchema;
+    output: Joi.StringSchema;
+    framework: Joi.StringSchema;
+    logger: Joi.StringSchema;
+    configuration: Joi.StringSchema;
+    testAdapterPath: Joi.StringSchema;
+    filter: Joi.StringSchema;
+    listTests: Joi.BooleanSchema;
+    settings: Joi.StringSchema;
   /**
    * Create the validation model
    */

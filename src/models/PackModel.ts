@@ -1,5 +1,16 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 class PackModel {
+    version: Joi.StringSchema;
+    msbuildArgs: Joi.ArraySchema;
+    echo: Joi.BooleanSchema;
+    serviceable: Joi.BooleanSchema;
+    verbosity: Joi.StringSchema;
+    versionSuffix: Joi.StringSchema;
+    configuration: Joi.StringSchema;
+    includeSource: Joi.BooleanSchema;
+    includeSymbols: Joi.BooleanSchema;
+    noBuild: Joi.BooleanSchema;
+    output: Joi.StringSchema;
   /**
    * Create the validation model
    */

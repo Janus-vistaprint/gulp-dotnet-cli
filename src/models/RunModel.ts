@@ -1,6 +1,20 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 /* Represents a run model */
 class RunModel {
+    additionalArgs: Joi.ArraySchema;
+    msbuildArgs: Joi.ArraySchema;
+    version: Joi.StringSchema;
+    echo: Joi.BooleanSchema;
+    verbosity: Joi.StringSchema;
+    force: Joi.StringSchema;
+    noDependencies: Joi.StringSchema;
+    noRestore: Joi.StringSchema;
+    noBuild: Joi.StringSchema;
+    noLaunchProfile: Joi.StringSchema;
+    launchProfile: Joi.StringSchema;
+    runtime: Joi.StringSchema;
+    framework: Joi.StringSchema;
+    configuration: Joi.StringSchema;
   /**
    * Create the validation model
    */

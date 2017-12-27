@@ -1,5 +1,14 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 class PublishModel {
+    verbosity: Joi.StringSchema;
+    msbuildArgs: Joi.ArraySchema;
+    echo: Joi.BooleanSchema;
+    version: Joi.StringSchema;
+    versionSuffix: Joi.StringSchema;
+    configuration: Joi.StringSchema;
+    output: Joi.StringSchema;
+    runtime: Joi.StringSchema;
+    framework: Joi.StringSchema;
     constructor(){
         this.framework = Joi.string().description('Target framework to publish for. The target framework has to be specified in the project file.');
         this.runtime = Joi.string().description('Publish the project for a given runtime. This is used when creating self-contained deployment. Default is to publish a framework-dependented app');

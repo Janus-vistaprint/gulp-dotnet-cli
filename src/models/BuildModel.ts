@@ -1,6 +1,17 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 /* Represents a build model */
 class BuildModel {
+    msbuildArgs: Joi.ArraySchema;
+    version: Joi.StringSchema;
+    echo: Joi.BooleanSchema;
+    verbosity: Joi.StringSchema;
+    noDependencies: Joi.BooleanSchema;
+    noIncremental: Joi.BooleanSchema;
+    versionSuffix: Joi.StringSchema;
+    configuration: Joi.StringSchema;
+    runtime: Joi.StringSchema;
+    framework: Joi.StringSchema;
+    output: Joi.StringSchema;
   /**
    * Create the validation model
    */
@@ -9,7 +20,7 @@ class BuildModel {
         this.framework = Joi.string().description('Target framework to build for. The target framework has to be specified in the project file.');
         this.runtime = Joi.string().description('Target runtime to build for. The default is to build a portable application.');
         this.configuration = Joi.string().description('Configuration to use for building the project. Default for most projects is  "Debug"');
-        this.versionSuffix = Joi.boolean().description('Defines the value for the $(VersionSuffix) property in the project');
+        this.versionSuffix = Joi.string().description('Defines the value for the $(VersionSuffix) property in the project');
         this.noIncremental = Joi.boolean().description('Disables incremental build.');
         this.noDependencies = Joi.boolean().description('Set this flag to ignore project-to-project references and only build the root project');
         this.verbosity = Joi.string().only('quiet', 'minimal', 'normal', 'detailed', 'diagnostic');

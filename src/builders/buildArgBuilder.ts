@@ -1,10 +1,18 @@
+//todo generate those JOI models from these interfaces
+export interface IBuildModel{
+    output: string
+    framework: string,
+    runtime: string,
+    configuration: string,
+    versionSuffix: boolean,
+}
 
 /**
  * calculates build arguments
  * @param {BuildModel} value - the value to build arguments off of.
  */
-let build = (value) => {
-    let args = [];
+export default (value: IBuildModel) => {
+    let args : Array<string|boolean> = [];
     if(!value){
         return args;
     }
@@ -40,5 +48,3 @@ let build = (value) => {
     }
     return args;
 };
-
-module.exports = build;

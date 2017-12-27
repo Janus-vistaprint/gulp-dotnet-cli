@@ -1,5 +1,17 @@
-const Joi = require('joi');
+import * as Joi from 'joi'
 class RestoreModel {
+    version: Joi.StringSchema;
+    msbuildArgs: Joi.ArraySchema;
+    verbosity: Joi.StringSchema;
+    echo: Joi.BooleanSchema;
+    noDependencies: Joi.BooleanSchema;
+    ignoreFailedSources: Joi.BooleanSchema;
+    noCache: Joi.BooleanSchema;
+    configfile: Joi.StringSchema;
+    disableParallel: Joi.BooleanSchema;
+    packages: Joi.StringSchema;
+    runtime: Joi.StringSchema;
+    source: (Joi.StringSchema | Joi.ArraySchema)[];
     constructor(){
         this.source = [Joi.string().description('Specifies a NuGet package source to use during the restore.'),
             Joi.array().description('Specifies a set of NuGet package sources to use during the restore.')];
