@@ -1,6 +1,6 @@
 {
   "name": "gulp-dotnet-cli",
-  "version": "0.9.0",
+  "version": "0.10.0-pre-4",
   "description": "A dotnet command line interface for gulp",
   "main": "./dist/index.js",
   "scripts": {
@@ -47,6 +47,11 @@
     "rimraf": "^2.6.1",
     "typescript": "^2.6.2"
   },
+  "files": [
+    "dist",
+    "src",
+    "docs"
+  ],
   "nyc": {
     "exclude": [
       "test/**"

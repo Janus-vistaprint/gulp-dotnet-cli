@@ -81,13 +81,6 @@ The [run model](/lib/models/RunModel.js) contains the actual model we validate a
 
 > sets the console verbosity
 
-
-#### msbuildArgs
-
-* type: `Array<string>`
-
-> Depricated - if you are using this to pass arguments to the program, use additionalArgs instead.
-
 #### additionalArgs
 
 * type: `Array<string>`
