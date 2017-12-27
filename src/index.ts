@@ -16,11 +16,11 @@ import { IRunModel } from './builders/runArgBuilder'
 import { ITestModel } from './builders/testArgBuilder'
 import { IPublishModel } from './builders/publishArgBuilder'
 
-export default {
+export {
     build,
-    restore, 
-    test, 
-    pack, 
+    restore,
+    test,
+    pack,
     publish,
     push,
     clean,
