@@ -50,7 +50,8 @@
   "nyc": {
     "exclude": [
       "test/**",
-      "lib/models/**"
+      "lib/models/**",
+      "dist/**"
     ]
   }
 }
