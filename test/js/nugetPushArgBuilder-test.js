@@ -16,6 +16,9 @@ describe('push Argument Builder', () => {
     it('should have symbolsource if symbolsource is passed', () => {
       assert.deepEqual(builder.default({symbolsource: 'yo'}), ['--symbol-source', 'yo']);
     });
+    it('should have symbolsource if symbolsource is passed', () => {
+      assert.deepEqual(builder.default({symbolApiKey: 'yo'}), ['--symbol-api-key', 'yo']);
+    });
     it('should have timeout if timeout is passed', () => {
       assert.deepEqual(builder.default({timeout: 'yo'}), ['--timeout', 'yo']);
     });

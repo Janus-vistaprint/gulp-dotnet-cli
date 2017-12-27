@@ -40,4 +40,7 @@ describe('Restore Argument Builder', () => {
     it('should version arguments', () => {
       assert.deepEqual(builder.default({version: '1.0.1'}), ['/p:Version=1.0.1']);
     });
+    it('should have verbosity if verbosity is passed', () => {
+      assert.deepEqual(builder.default({verbosity: 'yo'}), ['--verbosity', 'yo']);
+    });
 });

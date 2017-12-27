@@ -1,6 +1,9 @@
 let assert = require('assert');
 let builder = require('../../dist/builders/testArgBuilder');
 describe('Test Argument Builder', () => {
+  it('should handle null', () => {
+    assert.deepEqual(builder.default(null), []);
+  });
     it('should have settings if settings is passed', () => {
       assert.deepEqual(builder.default({settings: 'yo'}), ['--settings', 'yo']);
     });
