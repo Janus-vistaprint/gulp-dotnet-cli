@@ -1,3 +1,285 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82f6487235f02adb59c17b0b34c9e7c128037bbe18e2e6dcdb287563799d7d5b
-size 17934
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>gulp-dotnet-cli</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">gulp-dotnet-cli</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> gulp-dotnet-cli</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master"><img src="https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli"><img src="https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/Janus-vistaprint/gulp-dotnet-cli/maintainability"><img src="https://api.codeclimate.com/v1/badges/71c799200151715e1c08/maintainability" alt="Maintainability"></a></p>
+				<h2 id="gulp-dotnet-cli">gulp-dotnet-cli</h2>
+				<p><a href="https://github.com/gulpjs/gulp">gulp</a> plugin for the dotnet cli. </p>
+				<p>You can view our <a href="https://janus-vistaprint.github.io/gulp-dotnet-cli/classes/buildmodel.html">Api docs</a>, or read <a href="https://blog.terribledev.io/Building-dotnet-core-apps-and-packages-with-gulp/">this blog post</a></p>
+				<p>Each interface in the docs should describe the objects you must pass in. For example <a href="https://janus-vistaprint.github.io/gulp-dotnet-cli/interfaces/ibuildmodel.html">IBuildModel</a> is the interface containing the declaration of options for the <code>build</code> action.</p>
+				<h2 id="usage">Usage</h2>
+				<p>You must have the <a href="http://dot.net">dotnet cli</a> installed and on your path.</p>
+				<p>First, install gulp-dotnet-cli </p>
+				<p><code>npm install --save-dev gulp-dotnet-cli</code></p>
+				<p>Then add it to your gulpfile.js</p>
+				<p>Simple Example:</p>
+				<pre><code class="lang-javascript">
+<span class="hljs-keyword">let</span> {clean, restore, build, test, pack, publish, run} = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-dotnet-cli'</span>);
+<span class="hljs-keyword">let</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>);
+<span class="hljs-comment">//clean</span>
+gulp.task(<span class="hljs-string">'clean'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+            .pipe(clean());
+});
+<span class="hljs-comment">//restore nuget packages</span>
+gulp.task(<span class="hljs-string">'restore'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+            .pipe(restore());
+});
+<span class="hljs-comment">//compile</span>
+gulp.task(<span class="hljs-string">'build'</span>, [<span class="hljs-string">'restore'</span>], ()=&gt;{
+                    <span class="hljs-comment">//this could be **/*.sln if you wanted to build solutions</span>
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+        .pipe(build());
+});
+<span class="hljs-comment">//run unit tests</span>
+gulp.task(<span class="hljs-string">'test'</span>, [<span class="hljs-string">'build'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*test*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+        .pipe(test())
+});
+<span class="hljs-comment">//compile and publish an application to the local filesystem</span>
+gulp.task(<span class="hljs-string">'publish'</span>, [<span class="hljs-string">'test'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'src/TestWebProject.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+                .pipe(publish({<span class="hljs-attr">configuration</span>: <span class="hljs-string">'Release'</span>}));
+});
+<span class="hljs-comment">//run</span>
+gulp.task(<span class="hljs-string">'run'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'src/TestWebProject.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+            .pipe(run());
+});
+</code></pre>
+				<p>More Complicated example:</p>
+				<pre><code class="lang-javascript">
+<span class="hljs-keyword">let</span> {clean, restore, build, test, pack, publish, run} = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-dotnet-cli'</span>);
+<span class="hljs-keyword">let</span> version = <span class="hljs-string">`1.3.`</span> + (process.env.BUILD_NUMBER || <span class="hljs-string">'0'</span>);
+<span class="hljs-keyword">let</span> configuration = process.env.BUILD_CONFIGURATION || <span class="hljs-string">'Release'</span>;
+<span class="hljs-keyword">let</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>);
+<span class="hljs-comment">//clean</span>
+gulp.task(<span class="hljs-string">'clean'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+            .pipe(clean());
+});
+<span class="hljs-comment">//restore nuget packages</span>
+gulp.task(<span class="hljs-string">'restore'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+            .pipe(restore());
+});
+<span class="hljs-comment">//compile</span>
+gulp.task(<span class="hljs-string">'build'</span>, [<span class="hljs-string">'restore'</span>], ()=&gt;{
+                    <span class="hljs-comment">//this could be **/*.sln if you wanted to build solutions</span>
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+        .pipe(build({<span class="hljs-attr">configuration</span>: configuration, <span class="hljs-attr">version</span>: version}));
+});
+<span class="hljs-comment">//run unit tests</span>
+gulp.task(<span class="hljs-string">'test'</span>, [<span class="hljs-string">'build'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/*test*.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+        .pipe(test())
+});
+<span class="hljs-comment">//compile and publish an application to the local filesystem</span>
+gulp.task(<span class="hljs-string">'publish'</span>, [<span class="hljs-string">'test'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'src/TestWebProject.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+                .pipe(publish({<span class="hljs-attr">configuration</span>: configuration, <span class="hljs-attr">version</span>: version}));
+});
+<span class="hljs-comment">//convert a project to a nuget package</span>
+gulp.task(<span class="hljs-string">'pack'</span>, [<span class="hljs-string">'build'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'**/TestLibrary.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+                .pipe(pack({
+                            <span class="hljs-attr">output</span>: path.join(process.cwd(), <span class="hljs-string">'nupkgs'</span>) , 
+                            <span class="hljs-attr">version</span>: version
+                            }));
+});
+<span class="hljs-comment">//push nuget packages to a server</span>
+gulp.task(<span class="hljs-string">'push'</span>, [<span class="hljs-string">'pack'</span>], ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'nupkgs/*.nupkg'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+                .pipe(push({
+                    <span class="hljs-attr">apiKey</span>: process.env.NUGET_API_KEY, 
+                    <span class="hljs-attr">source</span>: <span class="hljs-string">'https://myget.org/f/myfeedurl'</span>}));
+});
+<span class="hljs-comment">//run</span>
+gulp.task(<span class="hljs-string">'run'</span>, ()=&gt;{
+    <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">'src/TestWebProject.csproj'</span>, {<span class="hljs-attr">read</span>: <span class="hljs-literal">false</span>})
+                .pipe(run());
+});
+</code></pre>
+				<p>You can find a working example in our <a href="test/gulpfile.js">test</a> directory</p>
+				<h2 id="generating-docs">Generating docs</h2>
+				<p>You can generate new docs to host by running <code>yarn run docs</code> or <code>npm run docs</code>. The docs folder is tracked with git lfs, you must have it installed if you wish to update the docs folder.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ibuildmodel.html" class="tsd-kind-icon">IBuild<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icleanmodel.html" class="tsd-kind-icon">IClean<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/inugetpushmodel.html" class="tsd-kind-icon">INuget<wbr>Push<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ipackmodel.html" class="tsd-kind-icon">IPack<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ipublishmodel.html" class="tsd-kind-icon">IPublish<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irestoremodel.html" class="tsd-kind-icon">IRestore<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irunmodel.html" class="tsd-kind-icon">IRun<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itestmodel.html" class="tsd-kind-icon">ITest<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#plugin_name" class="tsd-kind-icon">PLUGIN_<wbr>NAME</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#pluginerror" class="tsd-kind-icon">Plugin<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shelly" class="tsd-kind-icon">shelly</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
