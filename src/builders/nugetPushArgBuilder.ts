@@ -1,16 +1,4 @@
-export interface INugetPushModel{
-    forceEnglishOutput: boolean,
-    source: string,
-    symbolsource: string,
-    timeout: number,
-    apiKey: string,
-    symbolApiKey: string,
-    disableBuffering: boolean,
-    noSymbols: boolean,
-    echo: boolean
-
-}
-
+import { INugetPushModel } from '../schema/interfaces/INugetPushModel';
 export default (value : INugetPushModel) => {
     let args : Array<string|boolean|number> = [];
     if(!value){

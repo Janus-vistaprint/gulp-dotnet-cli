@@ -23,7 +23,7 @@ describe('Run Argument Builder', () => {
       assert.deepEqual(builder.default({launchProfile: 'yo'}), ['--launch-profile', 'yo']);
     });    
     it('should have noLaunchProfile if noLaunchProfile is passed', () => {
-      assert.deepEqual(builder.default({noLaunchProfile: 'yo'}), ['--no-launch-profile', 'yo']);
+      assert.deepEqual(builder.default({noLaunchProfile: true}), ['--no-launch-profile']);
     });    
     it('should have noBuild if noBuild is passed', () => {
       assert.deepEqual(builder.default({noBuild: 'yo'}), ['--no-build', 'yo']);

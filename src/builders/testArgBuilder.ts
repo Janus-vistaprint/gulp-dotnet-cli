@@ -1,19 +1,4 @@
-export interface ITestModel{
-    settings: string,
-    listTests: boolean,
-    filter: string,
-    testAdapterPath: string,
-    logger: string,
-    configuration: string,
-    framework: string,
-    output: string,
-    diag: string,
-    noBuild : boolean,
-    verbosity: string,
-    additionalArgs: Array<string>,
-    echo: boolean
-}
-
+import { ITestModel } from '../schema/interfaces/ITestModel';
 export default (value: ITestModel) => {
     let args : Array<any> = [];
     if(!value){

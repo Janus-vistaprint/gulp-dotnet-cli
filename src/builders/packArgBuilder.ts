@@ -1,19 +1,4 @@
-export interface IPackModel{
-    output: string,
-    noBuild: boolean,
-    includeSymbols: boolean,
-    includeSource: boolean,
-    configuration: string,
-    versionSuffix: string,
-    serviceable: boolean,
-    verbosity: string,
-    msbuildArgs: Array<string>,
-    version: string,
-    echo: boolean,
-    noDependencies: boolean,
-    noRestore: boolean
-}
-
+import { IPackModel } from '../schema/interfaces/IPackModel';
 export default (value : IPackModel) => {
     let args : Array<string|boolean> = [];
     if(!value){

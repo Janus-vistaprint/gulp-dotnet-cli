@@ -1,10 +1,12 @@
-[![Coverage Status](https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master)](https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master) [![Build Status](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master)](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli)
+[![Coverage Status](https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master)](https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master) [![Build Status](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master)](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli) [![Maintainability](https://api.codeclimate.com/v1/badges/71c799200151715e1c08/maintainability)](https://codeclimate.com/github/Janus-vistaprint/gulp-dotnet-cli/maintainability)
 
 ## gulp-dotnet-cli
 
 [gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. 
 
-You can view our [Api docs](docs/Readme.md), or read [this blog post](https://blog.terribledev.io/Building-dotnet-core-apps-and-packages-with-gulp/)
+You can view our [Api docs](https://janus-vistaprint.github.io/gulp-dotnet-cli/classes/buildmodel.html), or read [this blog post](https://blog.terribledev.io/Building-dotnet-core-apps-and-packages-with-gulp/)
+
+Each interface in the docs should describe the objects you must pass in. For example [IBuildModel](https://janus-vistaprint.github.io/gulp-dotnet-cli/interfaces/ibuildmodel.html) is the interface containing the declaration of options for the `build` action.
 
 ## Usage
 
@@ -114,3 +116,7 @@ gulp.task('run', ()=>{
 
 ```
 You can find a working example in our [test](test/gulpfile.js) directory
+
+## Generating docs
+
+You can generate new docs to host by running `yarn run docs` or `npm run docs`. The docs folder is tracked with git lfs, you must have it installed if you wish to update the docs folder.

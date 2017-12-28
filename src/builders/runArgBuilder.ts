@@ -1,22 +1,8 @@
-export interface IRunModel{
-    configuration: string,
-    framework: string,
-    runtime: string,
-    launchProfile: string,
-    noLaunchProfile: string,
-    noBuild: boolean,
-    noRestore: boolean,
-    noDependencies: boolean,
-    force: boolean,
-    verbosity: string,
-    additionalArgs: Array<string>,
-    echo: boolean
-}
-
 /**
  * calculates run arguments
- * @param {RunModel} value - the value to run arguments off of.
+ * @param {IRunModel} value - the value to run arguments off of.
  */
+import { IRunModel } from '../schema/interfaces/IRunModel';
 export default (value : IRunModel) => {
     let args: Array<string|boolean|Number> = [];
     if(!value){
@@ -35,7 +21,7 @@ export default (value : IRunModel) => {
         args = args.concat(['--launch-profile', value.launchProfile]);
     }    
     if (value.noLaunchProfile) {
-        args = args.concat(['--no-launch-profile', value.noLaunchProfile]);
+        args = args.concat(['--no-launch-profile']);
     }    
     if (value.noBuild) {
         args = args.concat(['--no-build', value.noBuild]);

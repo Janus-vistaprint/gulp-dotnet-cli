@@ -1,17 +1,10 @@
-import * as Joi from 'joi'
+import { IPublishModel } from './schema/interfaces/IPublishModel';
+import publishArgBuilder from './builders/publishArgBuilder';
 import shelly from './shelly'
-import PublishModel from './models/PublishModel'
-const validation = Joi.object().keys(new PublishModel());
-import argBuilder, { IPublishModel } from './builders/publishArgBuilder';
 import * as stream from 'stream';
 
 export default (options : IPublishModel) => {
-    let {error, value} = Joi.validate(options || {}, validation);
-    if(error){
-        throw error;
-    }
-    let calculatedArgs = argBuilder(value);
-    
-    return shelly('dotnet', 'publish', calculatedArgs, value.echo) as stream.Transform;
+    let calculatedArgs = publishArgBuilder(options);
+    return shelly('dotnet', 'publish', calculatedArgs, options.echo) as stream.Transform;
 
 };
