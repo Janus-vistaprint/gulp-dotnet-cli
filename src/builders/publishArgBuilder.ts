@@ -1,15 +1,4 @@
-export interface IPublishModel{
-    output: string,
-    configuration: string,
-    versionSuffix: string,
-    verbosity: string,
-    msbuildArgs: Array<string>,
-    version: string,
-    framework: string,
-    runtime: string,
-    echo: boolean
-}
-
+import { IPublishModel } from '../schema/interfaces/IPublishModel';
 export default (value : IPublishModel) => {
     let args : Array<any> = [];
     if(!value){

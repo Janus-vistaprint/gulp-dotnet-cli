@@ -1,19 +1,4 @@
-//todo generate those JOI models from these interfaces
-export interface IBuildModel{
-    output: string
-    framework: string,
-    runtime: string,
-    configuration: string,
-    versionSuffix: boolean,
-    noIncremental: boolean,
-    noDependencies: boolean,
-    //todo: figure out the common things and make a base interface
-    // also convert verbosities into an enum
-    verbosity: string,
-    msbuildArgs: Array<string>,
-    version: string,
-    echo: true
-}
+import { IBuildModel } from '../schema/interfaces/IBuildModel';
 
 /**
  * calculates build arguments

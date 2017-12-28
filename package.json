@@ -6,7 +6,8 @@
   "scripts": {
     "test": "rimraf ./dist && tsc && mocha test/js/**/*.js",
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "compile": "rimraf ./dist && tsc"
+    "compile": "rimraf ./dist && tsc",
+    "docs" : "rimraf ./docs && typedoc --mode file --out docs src/**"
   },
   "repository": {
     "type": "git",
@@ -26,14 +27,12 @@
   "dependencies": {
     "child-process-promise": "^2.2.0",
     "gulp-util": "^3.0.8",
-    "joi": "^10.3.1",
     "lodash": "^4.17.4",
     "through2": "^2.0.3"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.5",
     "@types/gulp-util": "^3.0.34",
-    "@types/joi": "^13.0.3",
     "@types/lodash": "^4.14.91",
     "@types/node": "^8.5.2",
     "@types/through2": "^2.0.33",

@@ -1,21 +1,7 @@
-import * as _ from 'lodash'
+import * as _ from 'lodash';
+import { IRestoreModel } from '../schema/interfaces/IRestoreModel';
 
-export interface IRestoreBuilder{
-    verbosity: string,
-    msbuildArgs: Array<string>,
-    version: string,
-    source: Array<string> | string,
-    runtime: string,
-    packages: string,
-    disableParallel: boolean,
-    configfile: string,
-    noIncremental: boolean,
-    noDependencies: boolean,
-    echo: boolean
-
-}
-
-export default (value: IRestoreBuilder) => {
+export default (value: IRestoreModel) => {
     let args : Array<string|boolean|Number> = [];
     if(!value){
         return args;

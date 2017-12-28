@@ -7,14 +7,14 @@ import push from './push';
 import clean from './clean';
 import run from './run';
 import { Transform } from 'stream';
-import { IBuildModel } from './builders/buildArgBuilder';
-import { ICleanModel } from './builders/cleanArgBuilder';
-import { INugetPushModel } from './builders/nugetPushArgBuilder';
-import { IPackModel } from './builders/packArgBuilder';
-import { IRestoreBuilder } from './builders/restoreArgBuilder'
-import { IRunModel } from './builders/runArgBuilder'
-import { ITestModel } from './builders/testArgBuilder'
-import { IPublishModel } from './builders/publishArgBuilder'
+import { IBuildModel } from './schema/interfaces/IBuildModel';
+import { ICleanModel } from './schema/interfaces/ICleanModel';
+import { INugetPushModel } from './schema/interfaces/INugetPushModel';
+import { IPackModel } from './schema/interfaces/IPackModel';
+import { IRestoreModel } from './schema/interfaces/IRestoreModel'
+import { IRunModel } from './schema/interfaces/IRunModel'
+import { ITestModel } from './schema/interfaces/ITestModel'
+import { IPublishModel } from './schema/interfaces/IPublishModel'
 
 export {
     build,
