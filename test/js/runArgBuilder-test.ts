@@ -1,4 +1,4 @@
-let assert = require('assert');
+import * as assert from 'assert';
 let builder = require('../../dist/builders/runArgBuilder');
 describe('Run Argument Builder', () => {
     it('should return an empty array if nothing is passed in', () => {

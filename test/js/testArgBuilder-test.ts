@@ -1,4 +1,4 @@
-let assert = require('assert');
+import * as assert from 'assert';
 let builder = require('../../dist/builders/testArgBuilder');
 describe('Test Argument Builder', () => {
   it('should handle null', () => {
