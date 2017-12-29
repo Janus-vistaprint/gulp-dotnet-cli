@@ -84,7 +84,6 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#plugin_name" class="tsd-kind-icon">PLUGIN_<wbr>NAME</a></li>
-								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#pluginerror" class="tsd-kind-icon">Plugin<wbr>Error</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -104,17 +103,7 @@
 					<div class="tsd-signature tsd-kind-icon">PLUGIN_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"gulp-dotnet-cli"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;gulp-dotnet-cli&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Janus-vistaprint/gulp-dotnet-cli/blob/46990b4/src/shelly.ts#L11">shelly.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
-					<a name="pluginerror" class="tsd-anchor"></a>
-					<h3>Plugin<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Plugin<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PluginError</span><span class="tsd-signature-symbol"> =&nbsp;guitl.PluginError</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Janus-vistaprint/gulp-dotnet-cli/blob/46990b4/src/shelly.ts#L5">shelly.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Janus-vistaprint/gulp-dotnet-cli/blob/afa5ebc/src/shelly.ts#L11">shelly.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,13 +114,13 @@
 					<a name="shelly" class="tsd-anchor"></a>
 					<h3>shelly</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">shelly<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, noun<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, echo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Boolean</span>, setCwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
+						<li class="tsd-signature tsd-kind-icon">shelly<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, noun<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, echo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, setCwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Janus-vistaprint/gulp-dotnet-cli/blob/46990b4/src/shelly.ts#L23">shelly.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Janus-vistaprint/gulp-dotnet-cli/blob/afa5ebc/src/shelly.ts#L23">shelly.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,13 +129,13 @@
 									<h5>command: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>noun: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>noun: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5>args: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> echo: <span class="tsd-signature-type">Boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> echo: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> setCwd: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
@@ -194,9 +183,6 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#plugin_name" class="tsd-kind-icon">PLUGIN_<wbr>NAME</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#pluginerror" class="tsd-kind-icon">Plugin<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#shelly" class="tsd-kind-icon">shelly</a>

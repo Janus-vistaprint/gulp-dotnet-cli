@@ -4,7 +4,7 @@
 
 [gulp](https://github.com/gulpjs/gulp) plugin for the dotnet cli. 
 
-You can view our [Api docs](https://janus-vistaprint.github.io/gulp-dotnet-cli/classes/buildmodel.html), or read [this blog post](https://blog.terribledev.io/Building-dotnet-core-apps-and-packages-with-gulp/)
+You can view our [Api docs](https://janus-vistaprint.github.io/gulp-dotnet-cli/), or read [this blog post](https://blog.terribledev.io/Building-dotnet-core-apps-and-packages-with-gulp/)
 
 Each interface in the docs should describe the objects you must pass in. For example [IBuildModel](https://janus-vistaprint.github.io/gulp-dotnet-cli/interfaces/ibuildmodel.html) is the interface containing the declaration of options for the `build` action.
 
