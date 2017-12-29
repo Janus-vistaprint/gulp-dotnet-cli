@@ -1,26 +1,26 @@
-import { IPublishModel } from '../schema/interfaces/IPublishModel';
-export default (value : IPublishModel) => {
-    let args : Array<any> = [];
-    if(!value){
+import { IPublishModel } from "../schema/interfaces/IPublishModel";
+export default (value: IPublishModel) => {
+    let args: any[] = [];
+    if (!value) {
         return args;
     }
     if (value.framework) {
-        args = args.concat(['--framework', value.framework]);
+        args = args.concat(["--framework", value.framework]);
     }
     if (value.runtime) {
-        args = args.concat(['--runtime', value.runtime]);
+        args = args.concat(["--runtime", value.runtime]);
     }
     if (value.output) {
-        args = args.concat(['--output', value.output]);
+        args = args.concat(["--output", value.output]);
     }
     if (value.configuration) {
-        args = args.concat(['--configuration', value.configuration]);
+        args = args.concat(["--configuration", value.configuration]);
     }
     if (value.versionSuffix) {
-        args = args.concat(['--version-suffix', value.versionSuffix]);
+        args = args.concat(["--version-suffix", value.versionSuffix]);
     }
     if (value.verbosity) {
-        args = args.concat(['--verbosity', value.verbosity]);
+        args = args.concat(["--verbosity", value.verbosity]);
     }
     if (value.msbuildArgs) {
         args = args.concat(value.msbuildArgs);

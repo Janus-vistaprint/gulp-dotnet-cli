@@ -1,10 +1,10 @@
-import { IPublishModel } from './schema/interfaces/IPublishModel';
-import publishArgBuilder from './builders/publishArgBuilder';
-import shelly from './shelly'
-import * as stream from 'stream';
+import * as stream from "stream";
+import publishArgBuilder from "./builders/publishArgBuilder";
+import { IPublishModel } from "./schema/interfaces/IPublishModel";
+import shelly from "./shelly";
 
-export default (options : IPublishModel) => {
-    let calculatedArgs = publishArgBuilder(options);
-    return shelly('dotnet', 'publish', calculatedArgs, options.echo) as stream.Transform;
+export default (options: IPublishModel) => {
+    const calculatedArgs = publishArgBuilder(options);
+    return shelly("dotnet", "publish", calculatedArgs, options.echo) as stream.Transform;
 
 };

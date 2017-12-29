@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register test/js/**/*.ts",
     "cover": "npm run compile && nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "compile": "rimraf ./dist && tsc",
+    "compile": "rimraf ./dist && tslint -c tslint.json src/** && tsc",
     "docs": "rimraf ./docs && typedoc --mode file --out docs src/"
   },
   "repository": {

@@ -1,11 +1,11 @@
-import { ITestModel } from './schema/interfaces/ITestModel';
-import shelly from './shelly';
-import * as stream from 'stream';
-import testArgBuilder from './builders/testArgBuilder';
+import * as stream from "stream";
+import testArgBuilder from "./builders/testArgBuilder";
+import { ITestModel } from "./schema/interfaces/ITestModel";
+import shelly from "./shelly";
 
-export default (options : ITestModel) => {
-    let calculatedArgs = testArgBuilder(options);
-    
-    return shelly('dotnet', 'test', calculatedArgs, options.echo) as stream.Transform;
+export default (options: ITestModel) => {
+    const calculatedArgs = testArgBuilder(options);
+
+    return shelly("dotnet", "test", calculatedArgs, options.echo) as stream.Transform;
 
 };

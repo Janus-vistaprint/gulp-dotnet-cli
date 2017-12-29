@@ -1,32 +1,32 @@
-import { INugetPushModel } from '../schema/interfaces/INugetPushModel';
-export default (value : INugetPushModel) => {
-    let args : Array<string|boolean|number> = [];
-    if(!value){
+import { INugetPushModel } from "../schema/interfaces/INugetPushModel";
+export default (value: INugetPushModel) => {
+    let args: Array<string|boolean|number> = [];
+    if (!value) {
         return args;
     }
     if (value.forceEnglishOutput) {
-        args = args.concat(['--force-english-output']);
+        args = args.concat(["--force-english-output"]);
     }
     if (value.source) {
-        args = args.concat(['--source', value.source]);
+        args = args.concat(["--source", value.source]);
     }
     if (value.symbolsource) {
-        args = args.concat(['--symbol-source', value.symbolsource]);
+        args = args.concat(["--symbol-source", value.symbolsource]);
     }
     if (value.timeout) {
-        args = args.concat(['--timeout', value.timeout]);
+        args = args.concat(["--timeout", value.timeout]);
     }
     if (value.apiKey) {
-        args = args.concat(['--api-key', value.apiKey]);
+        args = args.concat(["--api-key", value.apiKey]);
     }
     if (value.symbolApiKey) {
-        args = args.concat(['--symbol-api-key', value.symbolApiKey]);
+        args = args.concat(["--symbol-api-key", value.symbolApiKey]);
     }
     if (value.disableBuffering) {
-        args = args.concat(['--disable-buffering']);
+        args = args.concat(["--disable-buffering"]);
     }
     if (value.noSymbols) {
-        args = args.concat(['--no-symbols']);
+        args = args.concat(["--no-symbols"]);
     }
     return args;
 };

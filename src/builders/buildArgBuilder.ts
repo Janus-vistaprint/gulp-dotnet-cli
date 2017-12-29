@@ -1,37 +1,37 @@
-import { IBuildModel } from '../schema/interfaces/IBuildModel';
+import { IBuildModel } from "../schema/interfaces/IBuildModel";
 
 /**
  * calculates build arguments
  * @param {BuildModel} value - the value to build arguments off of.
  */
 export default (value: IBuildModel) => {
-    let args : Array<string|boolean> = [];
-    if(!value){
+    let args: Array<string|boolean> = [];
+    if (!value) {
         return args;
     }
     if (value.output) {
-        args = args.concat(['--output', value.output]);
+        args = args.concat(["--output", value.output]);
     }
     if (value.framework) {
-        args = args.concat(['--framework', value.framework]);
+        args = args.concat(["--framework", value.framework]);
     }
     if (value.runtime) {
-        args = args.concat(['--runtime', value.runtime]);
+        args = args.concat(["--runtime", value.runtime]);
     }
     if (value.configuration) {
-        args = args.concat(['--configuration', value.configuration]);
+        args = args.concat(["--configuration", value.configuration]);
     }
     if (value.versionSuffix) {
-        args = args.concat(['--version-suffix', value.versionSuffix]);
+        args = args.concat(["--version-suffix", value.versionSuffix]);
     }
     if (value.noIncremental) {
-        args = args.concat(['--no-incremental']);
+        args = args.concat(["--no-incremental"]);
     }
     if (value.noDependencies) {
-        args = args.concat(['--no-dependencies']);
+        args = args.concat(["--no-dependencies"]);
     }
     if (value.verbosity) {
-        args = args.concat(['--verbosity', value.verbosity]);
+        args = args.concat(["--verbosity", value.verbosity]);
     }
     if (value.msbuildArgs) {
         args = args.concat(value.msbuildArgs);

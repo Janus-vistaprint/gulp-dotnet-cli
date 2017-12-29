@@ -1,36 +1,36 @@
-import * as _ from 'lodash';
-import { IRestoreModel } from '../schema/interfaces/IRestoreModel';
+import * as _ from "lodash";
+import { IRestoreModel } from "../schema/interfaces/IRestoreModel";
 
 export default (value: IRestoreModel) => {
-    let args : Array<string|boolean|Number> = [];
-    if(!value){
+    let args: Array<string|boolean|number> = [];
+    if (!value) {
         return args;
     }
     if (value.source) {
-        args = args.concat(_.isArray(value.source) 
-            ? _.chain(value.source).map((source: string) => ['--source', source]).flatten().value()
-            : ['--source', value.source]);
+        args = args.concat(_.isArray(value.source)
+            ? _.chain(value.source).map((source: string) => ["--source", source]).flatten().value()
+            : ["--source", value.source]);
     }
     if (value.runtime) {
-        args = args.concat(['--runtime', value.runtime]);
+        args = args.concat(["--runtime", value.runtime]);
     }
     if (value.packages) {
-        args = args.concat(['--packages', value.packages]);
+        args = args.concat(["--packages", value.packages]);
     }
     if (value.disableParallel) {
-        args = args.concat(['--disable-parallel']);
+        args = args.concat(["--disable-parallel"]);
     }
     if (value.configfile) {
-        args = args.concat(['--configfile', value.configfile]);
+        args = args.concat(["--configfile", value.configfile]);
     }
     if (value.noIncremental) {
-        args = args.concat(['--no-incremental']);
+        args = args.concat(["--no-incremental"]);
     }
     if (value.noDependencies) {
-        args = args.concat(['--no-dependencies']);
+        args = args.concat(["--no-dependencies"]);
     }
     if (value.verbosity) {
-        args = args.concat(['--verbosity', value.verbosity]);
+        args = args.concat(["--verbosity", value.verbosity]);
     }
     if (value.msbuildArgs) {
         args = args.concat(value.msbuildArgs);
