@@ -19,23 +19,23 @@
     "dotnet-cli"
   ],
   "author": "Tommy Parnell",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Janus-vistaprint/gulp-dotnet-cli/issues"
   },
   "homepage": "https://github.com/Janus-vistaprint/gulp-dotnet-cli",
   "dependencies": {
     "child-process-promise": "^2.2.0",
-    "gulp-util": "^3.0.8",
     "lodash": "^4.17.4",
+    "plugin-error": "^0.1.2",
     "through2": "^2.0.3"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.5",
-    "@types/gulp-util": "^3.0.34",
     "@types/lodash": "^4.14.91",
     "@types/mocha": "^2.2.45",
     "@types/node": "^8.5.2",
+    "@types/plugin-error": "^0.1.0",
     "@types/through2": "^2.0.33",
     "coveralls": "^2.13.0",
     "del": "^3.0.0",

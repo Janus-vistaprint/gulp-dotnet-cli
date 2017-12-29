@@ -1,13 +1,12 @@
 // tslint:disable-next-line:no-reference
 /// <reference path="./declarations/child-process-promise.d.ts" />
 
-import * as guitl from "gulp-util";
-import * as through from "through2";
-const PluginError = guitl.PluginError;
 import * as cp from "child-process-promise";
 import * as _ from "lodash";
 import * as path from "path";
+import * as PluginError from "plugin-error";
 import { Transform } from "stream";
+import * as through from "through2";
 // Consts
 const PLUGIN_NAME = "gulp-dotnet-cli";
 

@@ -1,0 +1,1 @@
+You can compile this app with `yarn run compile`, run tests with `yarn run test`.
