@@ -21,6 +21,12 @@ const PLUGIN_NAME = "gulp-dotnet-cli";
 */
 // tslint:disable-next-line:max-line-length
 export default function shelly(command: string, noun: string|string[], args: any[], echo: boolean = false, setCwd: boolean = false) {
+    if (!command) {
+        throw new PluginError(PLUGIN_NAME, "command not passed");
+    }
+    if (!noun) {
+        throw new PluginError(PLUGIN_NAME, "noun not passed");
+    }
     if (!_.isArray(args)) {
         throw new PluginError(PLUGIN_NAME, "Arguments has to be an array");
     }
