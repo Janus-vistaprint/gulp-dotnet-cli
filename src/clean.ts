@@ -4,6 +4,7 @@ import { ICleanModel } from "./schema/interfaces/ICleanModel";
 import shelly from "./shelly";
 
 export default (options: ICleanModel) => {
+    options = options || {};
     const calculatedArgs = cleanArgBuilder(options);
     return shelly("dotnet", "clean", calculatedArgs, options.echo) as stream.Transform;
 

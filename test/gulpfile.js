@@ -5,7 +5,7 @@ let process = require('process');
 
 gulp.task('clean', () => {
     return gulp.src('**/*.csproj', { read: false })
-        .pipe(clean({ echo: true }));
+        .pipe(clean());
 });
 
 gulp.task('restore', ['clean'], () => {

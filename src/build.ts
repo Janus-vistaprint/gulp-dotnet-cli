@@ -6,6 +6,7 @@ import { IBuildModel } from "./schema/interfaces/IBuildModel";
 import shelly from "./shelly";
 
 export default (options: IBuildModel) => {
+    options = options || {};
     const calculatedArgs = buildArgBuilder(options);
     return shelly("dotnet", "build", calculatedArgs, options.echo) as stream.Transform;
 
