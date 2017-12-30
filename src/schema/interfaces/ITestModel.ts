@@ -12,35 +12,35 @@ export interface ITestModel {
      * @type {string}
      * @memberof ITestModel
      */
-    settings: string;
+    settings?: string;
     /**
      * Lists discovered tests
      *
      * @type {boolean}
      * @memberof ITestModel
      */
-    listTests: boolean;
+    listTests?: boolean;
     /**
      * Run tests that match the given expression
      *
      * @type {string}
      * @memberof ITestModel
      */
-    filter: string;
+    filter?: string;
     /**
      * Use custom adapters from the given path in the test run.
      *
      * @type {string}
      * @memberof ITestModel
      */
-    testAdapterPath: string;
+    testAdapterPath?: string;
     /**
      * Specify a logger for test results
      *
      * @type {string}
      * @memberof ITestModel
      */
-    logger: string;
+    logger?: string;
 
     /**
      * Enable verbose logs for test platform. Logs are written to the provided file.
@@ -49,7 +49,7 @@ export interface ITestModel {
      * @type {string}
      * @memberof ITestModel
      */
-    diag: string;
+    diag?: string;
     /**
      * Skip building the project prior to running. By default, the project will be built.
 
@@ -57,7 +57,7 @@ export interface ITestModel {
      * @type {boolean}
      * @memberof ITestModel
      */
-    noBuild: boolean;
+    noBuild?: boolean;
     /**
      * Configuration to use for building the project. Default for most projects is  "Debug"
 
@@ -65,7 +65,7 @@ export interface ITestModel {
      * @type {string}
      * @memberof ITestModel
      */
-    configuration: string;
+    configuration?: string;
     /**
      * Target framework to build for. The target framework has to be specified in the project file.
 
@@ -73,7 +73,7 @@ export interface ITestModel {
      * @type {string}
      * @memberof ITestModel
      */
-    framework: string;
+    framework?: string;
     /**
      * sets the console verbosity
 
@@ -81,8 +81,8 @@ export interface ITestModel {
      * @type {string}
      * @memberof ITestModel
      */
-    verbosity: string;
-    output: string;
+    verbosity?: string;
+    output?: string;
     /**
      * Any extra options that should be passed to the program being run
 
@@ -90,12 +90,12 @@ export interface ITestModel {
      * @type {Array<string>}
      * @memberof ITestModel
      */
-    additionalArgs: string[];
+    additionalArgs?: string[];
     /**
      * Log the command to the console
      *
      * @type {boolean}
      * @memberof ITestModel
      */
-    echo: boolean;
+    echo?: boolean;
 }

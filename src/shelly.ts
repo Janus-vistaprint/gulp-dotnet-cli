@@ -32,7 +32,7 @@ export default function shelly(command: string, noun: string|string[], args: any
     }
     // Creating a stream through which each file will pass
     return through.obj((file, enc, cb) => {
-        if (!file.path) {
+        if (!file || !file.path) {
             // return empty file
             return cb(null, file);
         }
@@ -44,7 +44,7 @@ export default function shelly(command: string, noun: string|string[], args: any
         if (setCwd) {
              options.cwd = path.dirname(file.path);
         }
-        cp.spawn(command, calculatedArgs, { stdio: "inherit" })
+        cp.spawn(command, calculatedArgs, options)
                 .then((a: any) => cb(null, file))
                 .catch((ex: any) => cb(ex, file));
 

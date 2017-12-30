@@ -12,7 +12,7 @@ export interface IRunModel {
      * @type {string}
      * @memberof IRunModel
      */
-    launchProfile: string;
+    launchProfile?: string;
     /**
      * Do not attempt to use launchSettings.json to configure the application
 
@@ -20,7 +20,7 @@ export interface IRunModel {
      * @type {boolean}
      * @memberof IRunModel
      */
-    noLaunchProfile: boolean;
+    noLaunchProfile?: boolean;
     /**
      * Skip building the project prior to running. By default, the project will be built.
 
@@ -28,7 +28,7 @@ export interface IRunModel {
      * @type {boolean}
      * @memberof IRunModel
      */
-    noBuild: boolean;
+    noBuild?: boolean;
     /**
      * Does not do an implicit restore when executing the command
 
@@ -36,7 +36,7 @@ export interface IRunModel {
      * @type {boolean}
      * @memberof IRunModel
      */
-    noRestore: boolean;
+    noRestore?: boolean;
     /**
      * Set this flag to ignore project to project references and only restore the root project.
 
@@ -44,7 +44,7 @@ export interface IRunModel {
      * @type {boolean}
      * @memberof IRunModel
      */
-    noDependencies: boolean;
+    noDependencies?: boolean;
     /**
      * Target framework to build for. The target framework has to be specified in the project file.
 
@@ -52,7 +52,7 @@ export interface IRunModel {
      * @type {string}
      * @memberof IRunModel
      */
-    framework: string;
+    framework?: string;
     /**
      * Target runtime to build for. The default is to build a portable application.
 
@@ -60,7 +60,7 @@ export interface IRunModel {
      * @type {string}
      * @memberof IRunModel
      */
-    runtime: string;
+    runtime?: string;
     /**
      * Configuration to use for building the project. Default for most projects is  "Debug"
 
@@ -68,7 +68,7 @@ export interface IRunModel {
      * @type {string}
      * @memberof IRunModel
      */
-    configuration: string;
+    configuration?: string;
     /**
      * Set this flag to force all dependencies to be resolved even if the last restore was successful.
      *  This is equivalent to deleting project.assets.json.
@@ -76,7 +76,7 @@ export interface IRunModel {
      * @type {boolean}
      * @memberof IRunModel
      */
-    force: boolean;
+    force?: boolean;
     /**
      * sets the console verbosity
 
@@ -84,19 +84,19 @@ export interface IRunModel {
      * @type {string}
      * @memberof IRunModel
      */
-    verbosity: string;
+    verbosity?: string;
     /**
      * Any extra options that should be passed to the program being run
      *
      * @type {Array<string>}
      * @memberof IRunModel
      */
-    additionalArgs: string[];
+    additionalArgs?: string[];
     /**
      * Log the command to the console
      *
      * @type {boolean}
      * @memberof IRunModel
      */
-    echo: boolean;
+    echo?: boolean;
 }
