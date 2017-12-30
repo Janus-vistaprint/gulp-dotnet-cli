@@ -12,28 +12,28 @@ export interface IRestoreModel {
      * @type {(Array<string> | string)}
      * @memberof IRestoreModel
      */
-    source: string[] | string;
+    source?: string[] | string;
     /**
      *
      * Target runtime to restore packages for
      * @type {string}
      * @memberof IRestoreModel
      */
-    runtime: string;
+    runtime?: string;
     /**
      * Directory to install packages in.
      *
      * @type {string}
      * @memberof IRestoreModel
      */
-    packages: string;
+    packages?: string;
     /**
      *
      * Disables restoring multiple projects in parallel.
      * @type {boolean}
      * @memberof IRestoreModel
      */
-    disableParallel: boolean;
+    disableParallel?: boolean;
     /**
      *
      * The NuGet configuration file to use
@@ -41,47 +41,47 @@ export interface IRestoreModel {
      * @type {string}
      * @memberof IRestoreModel
      */
-    configfile: string;
+    configfile?: string;
     /**
      *
      * @type {boolean}
      * @memberof IRestoreModel
      */
-    noIncremental: boolean;
+    noIncremental?: boolean;
     /**
       Set this flag to ignore project to project references and only restore the root project
      *
      * @type {boolean}
      * @memberof IRestoreModel
      */
-    noDependencies: boolean;
+    noDependencies?: boolean;
     /**
      *
-     * sets the console verbosity. valid values: 'quiet', 'minimal', 'normal', 'detailed', 'diagnostic'
+     * sets the console verbosity. valid values?: 'quiet', 'minimal', 'normal', 'detailed', 'diagnostic'
      * @type {string}
      * @memberof IRestoreModel
      */
-    verbosity: string;
+    verbosity?: string;
     /**
      *
      * Any extra options that should be passed to MSBuild. See dotnet msbuild -h for available options
      * @type {Array<string>}
      * @memberof IRestoreModel
      */
-    msbuildArgs: string[];
+    msbuildArgs?: string[];
     /**
      *
      * Sets the $(Version) property in msbuild
      * @type {string}
      * @memberof IRestoreModel
      */
-    version: string;
+    version?: string;
     /**
      *
      * Log the command to the console
      * @type {boolean}
      * @memberof IRestoreModel
      */
-    echo: boolean;
+    echo?: boolean;
 
 }
