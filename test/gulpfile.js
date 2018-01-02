@@ -28,17 +28,12 @@ gulp.task('publish', ['test'], () => {
         .pipe(publish());
 });
 
-gulp.task('run', () => {
-    return gulp.src('**/*.csproj', { read: false })
-        .pipe(run());
-});
-
 gulp.task('pack', ['build'], () => {
     return gulp.src('**/*.csproj', { read: false })
         .pipe(pack({ output: path.join(process.cwd(), 'nupkgs'), echo: true, noRestore: true }));
 });
 
-gulp.task('run:args', [], () => {
+gulp.task('run', [], () => {
     return gulp.src('args/*.csproj', { read: false })
         .pipe(run({
             additionalArgs: ['Steve'],
