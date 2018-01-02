@@ -8,6 +8,7 @@
     "cover": "npm run compile && nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "cover-html": "npm run compile && nyc npm test && nyc report --reporter=html",
     "compile": "rimraf ./dist && tslint -c tslint.json src/** && tsc",
+    "compile-tests": "tsc --project test",
     "docs": "rimraf ./docs && typedoc --mode file --out docs src/"
   },
   "repository": {
