@@ -1,0 +1,13 @@
+version: 1.0.{build}
+environment:
+  nodejs_version: "8"
+image: Visual Studio 2017
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+cache:
+- node_modules
+- test\node_modules
+build_script:
+- ps: '& ".\appveyor.ps1"'
+test: off
