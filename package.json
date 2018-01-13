@@ -57,6 +57,7 @@
   },
   "files": [
     "src",
+    "dist",
     "docs"
   ],
   "nyc": {
