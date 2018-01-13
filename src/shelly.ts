@@ -2,7 +2,6 @@
 /// <reference path="./declarations/child-process-promise.d.ts" />
 
 import * as cp from "child-process-promise";
-import * as _ from "lodash";
 import * as path from "path";
 import * as PluginError from "plugin-error";
 import { Transform } from "stream";
@@ -27,7 +26,7 @@ export default function shelly(command: string, noun: string|string[], args: any
     if (!noun) {
         throw new PluginError(PLUGIN_NAME, "noun not passed");
     }
-    if (!_.isArray(args)) {
+    if (!Array.isArray(args)) {
         throw new PluginError(PLUGIN_NAME, "Arguments has to be an array");
     }
     // Creating a stream through which each file will pass
@@ -36,7 +35,7 @@ export default function shelly(command: string, noun: string|string[], args: any
             // return empty file
             return cb(null, file);
         }
-        const calculatedArgs = _.concat([], noun, file.path, args);
+        const calculatedArgs = ([] as string[]).concat(noun, file.path, args);
         if (echo) {
             console.log(`${command} ${calculatedArgs.join(" ")}`);
         }

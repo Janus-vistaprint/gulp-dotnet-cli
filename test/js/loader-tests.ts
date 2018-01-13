@@ -1,30 +1,26 @@
-var fs = require('fs');
-var path = require('path');
+import * as fs from "fs";
+import * as path from "path";
 
-
-var walkSync = function(dir, filelist) {
-    var path = path || require('path');
-    var fs = fs || require('fs'),
-        files = fs.readdirSync(dir);
+// tslint:disable-next-line:no-shadowed-variable
+let walkSync = (dir: any, filelist: any) => {
+    let files = fs.readdirSync(dir);
     filelist = filelist || [];
-    files.forEach(function(file) {
+    files.forEach((file) => {
         if (fs.statSync(path.join(dir, file)).isDirectory()) {
             filelist = walkSync(path.join(dir, file), filelist);
-        }
-        else {
+        } else {
             filelist.push(path.join(dir, file));
         }
     });
     return filelist;
 };
 
+let filelist = walkSync(path.resolve(__dirname, "../../src"), null);
 
-var filelist = walkSync(path.resolve(__dirname,'../../dist'));
-
-filelist.forEach(file =>{
-    if(file.includes("d.ts") || file.includes(".map")){
+filelist.forEach((file: string) => {
+    if (file.includes("d.ts") || file.includes(".map")) {
         return;
     }
     console.log(file);
     require(file);
-})
+});

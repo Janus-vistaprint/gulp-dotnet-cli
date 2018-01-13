@@ -8,7 +8,9 @@
         "no-console": false,
         "jsdoc-format": false,
         "no-reference": false,
-        "no-reference-import": false
+        "no-reference-import": false,
+        "max-line-length":false,
+        "prefer-const": false
      },
     "rulesDirectory": []
 }
