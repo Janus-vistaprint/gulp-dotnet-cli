@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master)](https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master) [![Build Status](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master)](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli) [![Maintainability](https://api.codeclimate.com/v1/badges/71c799200151715e1c08/maintainability)](https://codeclimate.com/github/Janus-vistaprint/gulp-dotnet-cli/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/Janus-vistaprint/gulp-dotnet-cli/badge.svg?branch=master)](https://coveralls.io/github/Janus-vistaprint/gulp-dotnet-cli?branch=master) [![Build Status](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli.svg?branch=master)](https://travis-ci.org/Janus-vistaprint/gulp-dotnet-cli) [![Maintainability](https://api.codeclimate.com/v1/badges/71c799200151715e1c08/maintainability)](https://codeclimate.com/github/Janus-vistaprint/gulp-dotnet-cli/maintainability) [![npm](https://img.shields.io/npm/dm/gulp-dotnet-cli.svg)](https://www.npmjs.com/package/gulp-dotnet-cli)
 
 ## gulp-dotnet-cli
 
