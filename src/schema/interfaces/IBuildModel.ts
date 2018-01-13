@@ -38,7 +38,7 @@ export interface IBuildModel {
     /**
      *
      * Defines the value for the $(VersionSuffix) property in the project
-     * @type {boolean}
+     * @type {string}
      * @memberof IBuildModel
      */
     versionSuffix?: string;
