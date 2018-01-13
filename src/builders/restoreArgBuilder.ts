@@ -1,4 +1,3 @@
-import * as _ from "lodash";
 import { IRestoreModel } from "../schema/interfaces/IRestoreModel";
 
 export default (value: IRestoreModel) => {
@@ -7,8 +6,8 @@ export default (value: IRestoreModel) => {
         return args;
     }
     if (value.source) {
-        args = args.concat(_.isArray(value.source)
-            ? _.chain(value.source).map((source: string) => ["--source", source]).flatten().value()
+        args = args.concat(Array.isArray(value.source)
+            ? value.source.map((source: string) => ["--source", source]).reduce((a, b) => a.concat(b), [])
             : ["--source", value.source]);
     }
     if (value.runtime) {

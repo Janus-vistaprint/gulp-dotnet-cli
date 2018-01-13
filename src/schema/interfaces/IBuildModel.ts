@@ -41,7 +41,7 @@ export interface IBuildModel {
      * @type {boolean}
      * @memberof IBuildModel
      */
-    versionSuffix?: boolean;
+    versionSuffix?: string;
     /**
      *
      * Disables incremental build.
