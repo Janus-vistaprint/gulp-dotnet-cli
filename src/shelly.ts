@@ -30,7 +30,7 @@ export default function shelly(command: string, noun: string|string[], args: any
         throw new PluginError(PLUGIN_NAME, "Arguments has to be an array");
     }
     // Creating a stream through which each file will pass
-    return through.obj((file, enc, cb) => {
+    return through.obj(function(this: Transform, file, enc, cb) {
         if (!file || !file.path) {
             // return empty file
             return cb(null, file);
@@ -45,7 +45,14 @@ export default function shelly(command: string, noun: string|string[], args: any
         }
         cp.spawn(command, calculatedArgs, options)
                 .then((a: any) => cb(null, file))
-                .catch((ex: any) => cb(ex, file));
+                .catch((ex: Error) => {
+                    let pluginError = new PluginError(PLUGIN_NAME, `failed to ${noun}`);
+                    this.emit("error", pluginError);
+                    cb(pluginError, file);
+                })
+                // emit will trick node in thinking we have unhandled promise rejections
+                // tslint:disable-next-line:no-empty
+                .catch((ex) => { });
 
     });
 
