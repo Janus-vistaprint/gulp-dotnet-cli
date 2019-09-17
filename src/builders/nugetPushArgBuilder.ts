@@ -28,5 +28,8 @@ export default (value: INugetPushModel) => {
     if (value.noSymbols) {
         args = args.concat(["--no-symbols"]);
     }
+    if (value.additionalArgs) {
+        args = args.concat(value.additionalArgs);
+    }
     return args;
 };

@@ -90,6 +90,14 @@ export interface IPackModel {
      */
     version?: string;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof IPackModel
+     */
+    additionalArgs?: string[];
+    /**
      * Log the command to the console
      *
      * @type {boolean}
