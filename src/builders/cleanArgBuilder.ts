@@ -30,5 +30,8 @@ export default (value: ICleanModel) => {
     if (value.version) {
         args = args.concat(`/p:Version=${value.version}`);
     }
+    if (value.additionalArgs) {
+        args = args.concat(value.additionalArgs);
+    }
     return args;
 };

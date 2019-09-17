@@ -56,6 +56,14 @@ export interface ICleanModel {
      */
     version?: string;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof ICleanModel
+     */
+    additionalArgs?: string[];
+    /**
      *
      * Log the command to the console
      * @type {boolean}

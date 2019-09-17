@@ -80,6 +80,14 @@ export interface IBuildModel {
      */
     version?: string;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof IBuildModel
+     */
+    additionalArgs?: string[];
+    /**
      *
      *  Log the command to the console
      * @type {true}
