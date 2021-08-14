@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x, 16.x]
         dotnet-version: ['5.0.x']
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
