@@ -35,7 +35,7 @@ gulp.task('restore', ()=>{
             .pipe(restore());
 });
 //compile
-gulp.task('build', ['restore'], ()=>{
+gulp.task('build', ()=>{
                     //this could be **/*.sln if you wanted to build solutions
     return gulp.src('**/*.csproj', {read: false})
         .pipe(build());
@@ -78,23 +78,23 @@ gulp.task('restore', ()=>{
             .pipe(restore());
 });
 //compile
-gulp.task('build', ['restore'], ()=>{
+gulp.task('build', ()=>{
                     //this could be **/*.sln if you wanted to build solutions
     return gulp.src('**/*.csproj', {read: false})
         .pipe(build({configuration: configuration, version: version}));
 });
 //run unit tests
-gulp.task('test', ['build'], ()=>{
+gulp.task('test', ()=>{
     return gulp.src('**/*test*.csproj', {read: false})
         .pipe(test())
 });
 //compile and publish an application to the local filesystem
-gulp.task('publish', ['test'], ()=>{
+gulp.task('publish', ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
                 .pipe(publish({configuration: configuration, version: version}));
 });
 //convert a project to a nuget package
-gulp.task('pack', ['build'], ()=>{
+gulp.task('pack', ()=>{
     return gulp.src('**/TestLibrary.csproj', {read: false})
                 .pipe(pack({
                             output: path.join(process.cwd(), 'nupkgs') , 
@@ -102,7 +102,7 @@ gulp.task('pack', ['build'], ()=>{
                             }));
 });
 //push nuget packages to a server
-gulp.task('push', ['pack'], ()=>{
+gulp.task('push', ()=>{
     return gulp.src('nupkgs/*.nupkg', {read: false})
                 .pipe(push({
                     apiKey: process.env.NUGET_API_KEY, 
@@ -113,7 +113,7 @@ gulp.task('run', ()=>{
     return gulp.src('src/TestWebProject.csproj', {read: false})
                 .pipe(run());
 });
-
+gulp.task('push', gulp.series('clean', 'restore', 'build', 'publish', 'pack', 'push' ))
 ```
 You can find a working example in our [test](test/gulpfile.js) directory
 
