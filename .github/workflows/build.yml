@@ -27,10 +27,10 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - run: |
-      yarn
-      yarn run compile
-      cd test
-      yarn
-      yarn run gulp preflight
-      yarn run gulp run
-      cd ..
+          yarn
+          yarn run compile
+          cd test
+          yarn
+          yarn run gulp preflight
+          yarn run gulp run
+          cd ..
