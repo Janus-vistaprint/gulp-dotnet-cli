@@ -3,7 +3,7 @@ sudo: false
 node_js:
   - "14"
 script:
-- yarn run cover
+- yarn run compile && yarn run cover
 deploy:
   provider: npm
   email: "tparnell8@gmail.com"
