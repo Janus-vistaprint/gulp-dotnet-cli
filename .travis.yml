@@ -3,4 +3,4 @@ sudo: false
 node_js:
   - "14"
 script:
-- yarn run compile && yarn run cover
+- yarn run cover
