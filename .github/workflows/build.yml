@@ -36,11 +36,9 @@ jobs:
             yarn run gulp preflight
             yarn run gulp run
             cd ..
-      # - name: Coveralls
-      #   run: |
-      #       yarn run cover
-      #   env:
-      #       COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      #       COVERALLS_GIT_COMMIT: ${{ github.sha }}
-      #       COVERALLS_GIT_BRANCH: ${{ github.ref }}
-      #       COVERALLS_SERVICE_NAME: github
+            yarn run cover
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: lcov.info

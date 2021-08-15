@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "mocha --require ts-node/register --require source-map-support/register test/js/**/*.ts",
-    "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "cover": "nyc npm test && nyc report --reporter=text-lcov > lcov.info",
     "cover-html": "nyc npm test && nyc report --reporter=html",
     "clean": "rimraf ./dist",
     "compile": "npm run clean && tslint -c tslint.json src/** test/js/** && tsc",
