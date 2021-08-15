@@ -8,32 +8,32 @@ gulp.task('clean', () => {
         .pipe(clean());
 });
 
-gulp.task('restore', ['clean'], () => {
+gulp.task('restore', () => {
     return gulp.src('**/*.csproj', { read: false })
         .pipe(restore({ echo: true }));
 });
 
-gulp.task('build', ['restore'], () => {
+gulp.task('build', () => {
     return gulp.src('**/*.csproj', { read: false })
         .pipe(build({ configuration: 'Release', version: '1.3.0', echo: true }));
 });
 
-gulp.task('test', ['build'], () => {
+gulp.task('test', () => {
     return gulp.src('tst/*.csproj', { read: false })
         .pipe(test({ echo: true }));
 });
 
-gulp.task('publish', ['test'], () => {
+gulp.task('publish', () => {
     return gulp.src('**/*.csproj', { read: false })
         .pipe(publish());
 });
 
-gulp.task('pack', ['build'], () => {
+gulp.task('pack', () => {
     return gulp.src('**/*.csproj', { read: false })
         .pipe(pack({ output: path.join(process.cwd(), 'nupkgs'), echo: true, noRestore: true }));
 });
 
-gulp.task('run', [], () => {
+gulp.task('run', () => {
     return gulp.src('args/*.csproj', { read: false })
         .pipe(run({
             additionalArgs: ['Steve'],
@@ -42,4 +42,4 @@ gulp.task('run', [], () => {
 });
 
 
-gulp.task('preflight', ['restore', 'build', 'test', 'publish', 'pack']);
+gulp.task('preflight', gulp.series('clean', 'restore', 'build', 'test', 'publish', 'pack'));

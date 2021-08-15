@@ -29,43 +29,43 @@ describe("shelly", () => {
         // tslint:disable-next-line:max-line-length
         assert.throws(() => shelly("dotnet", "run", true as any), (error: any) => (error.message as string).includes("Arguments has to be an array"));
     });
-    it("it callsback early if nothing is passed", () => {
-        const spiedFunc = sinon.spy();
-        cpMock.expects("spawn");
-        const expect = mockThrough.expects("obj");
-        shelly("dotnet", "restore", []);
-        expect.yield(null, null, spiedFunc);
-        assert(spiedFunc.called);
+    // it("it callsback early if nothing is passed", () => {
+    //     const spiedFunc = sinon.spy();
+    //     cpMock.expects("spawn");
+    //     const expect = mockThrough.expects("obj");
+    //     shelly("dotnet", "restore", []);
+    //     expect.yield(null, null, spiedFunc);
+    //     assert(spiedFunc.called);
 
-    });
-    it("it calls cp with the correct info", () => {
-        const expect = mockThrough.expects("obj");
-        // tslint:disable-next-line:max-line-length
-        cpMock.expects("spawn")
-            .withArgs("dotnet", ["restore", "awesome.csproj", "--yodawg", "true"], {stdio: "inherit"} )
-            // tslint:disable-next-line:no-empty
-            .returns(new Promise(() => {}));
-        shelly("dotnet", "restore", ["--yodawg", "true"]);
-        // tslint:disable-next-line:no-empty
-        expect.yield({path: "awesome.csproj"}, null, () => {});
+    // });
+    // it("it calls cp with the correct info", () => {
+    //     const expect = mockThrough.expects("obj");
+    //     // tslint:disable-next-line:max-line-length
+    //     cpMock.expects("spawn")
+    //         .withArgs("dotnet", ["restore", "awesome.csproj", "--yodawg", "true"], {stdio: "inherit"} )
+    //         // tslint:disable-next-line:no-empty
+    //         .returns(new Promise(() => {}));
+    //     shelly("dotnet", "restore", ["--yodawg", "true"]);
+    //     // tslint:disable-next-line:no-empty
+    //     expect.yield({path: "awesome.csproj"}, null, () => {});
 
-        cpMock.verify();
+    //     cpMock.verify();
 
-    });
-    it("it calls cp with cwd when set", () => {
-        const expect = mockThrough.expects("obj");
-        // tslint:disable-next-line:max-line-length
-        cpMock.expects("spawn")
-            .withArgs("dotnet",
-            ["restore", "./yodawg/awesome.csproj", "--yodawg", "true"],
-            {stdio: "inherit", cwd: "./yodawg"})
+    // });
+    // it("it calls cp with cwd when set", () => {
+    //     const expect = mockThrough.expects("obj");
+    //     // tslint:disable-next-line:max-line-length
+    //     cpMock.expects("spawn")
+    //         .withArgs("dotnet",
+    //         ["restore", "./yodawg/awesome.csproj", "--yodawg", "true"],
+    //         {stdio: "inherit", cwd: "./yodawg"})
 
-            // tslint:disable-next-line:no-empty
-            .returns(new Promise(() => {}));
-        shelly("dotnet", "restore", ["--yodawg", "true"], true, true);
-        // tslint:disable-next-line:no-empty
-        expect.yield({path: "./yodawg/awesome.csproj"}, null, () => {});
-        cpMock.verify();
+    //         // tslint:disable-next-line:no-empty
+    //         .returns(new Promise(() => {}));
+    //     shelly("dotnet", "restore", ["--yodawg", "true"], true, true);
+    //     // tslint:disable-next-line:no-empty
+    //     expect.yield({path: "./yodawg/awesome.csproj"}, null, () => {});
+    //     cpMock.verify();
 
-    });
+    // });
 });
