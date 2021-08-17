@@ -77,6 +77,14 @@ export interface IRestoreModel {
      */
     version?: string;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof IRestoreModel
+     */
+    additionalArgs?: string[];
+    /**
      *
      * Log the command to the console
      * @type {boolean}

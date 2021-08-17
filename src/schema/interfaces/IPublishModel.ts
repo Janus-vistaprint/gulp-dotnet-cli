@@ -61,6 +61,14 @@ export interface IPublishModel {
      */
     runtime?: string;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof IPublishModel
+     */
+    additionalArgs?: string[];
+    /**
      *
      *  Log the command to the console
      * @type {boolean}

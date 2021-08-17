@@ -5,7 +5,7 @@ import { IBuildModel } from "../schema/interfaces/IBuildModel";
  * @param {BuildModel} value - the value to build arguments off of.
  */
 export default (value: IBuildModel) => {
-    let args: Array<string|boolean> = [];
+    let args: Array<string|boolean|number> = [];
     if (!value) {
         return args;
     }
@@ -38,6 +38,9 @@ export default (value: IBuildModel) => {
     }
     if (value.version) {
         args = args.concat(`/p:Version=${value.version}`);
+    }
+    if (value.additionalArgs) {
+        args = args.concat(value.additionalArgs);
     }
     return args;
 };

@@ -63,6 +63,14 @@ export interface INugetPushModel {
      */
     noSymbols?: boolean;
     /**
+     * Any extra options that should be passed to the program being run
+
+     *
+     * @type {Array<string>}
+     * @memberof INugetPushModel
+     */
+    additionalArgs?: string[];
+    /**
      * Logs the command we run to the console
      *
      * @type {boolean}
